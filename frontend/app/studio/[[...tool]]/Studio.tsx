@@ -5,11 +5,10 @@ import config from "@/sanity.config";
 
 export function Studio() {
   return (
-    // Studio-യ്ക്ക് താഴെ സൈറ്റിന്റെ Footer കാണാതിരിക്കാൻ മുഴുവൻ സ്ക്രീനും മൂടുന്നു
-    <div
-      style={{ position: "fixed", inset: 0, zIndex: 9999, background: "#fff" }}
-    >
+    <>
+      {/* Studio തുറന്നിരിക്കുമ്പോൾ സൈറ്റിന്റെ Footer മറയ്ക്കുന്നു (Footer root layout-ലാണ്) */}
+      <style>{`body > footer { display: none !important; }`}</style>
       <NextStudio config={config} />
-    </div>
+    </>
   );
 }
