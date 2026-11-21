@@ -40,7 +40,7 @@ export default async function ContactUsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#2F1200]">
+        <section className="relative isolate overflow-hidden bg-[#280F01]">
           {data.heroImage && (
             <Image
               src={data.heroImage}
@@ -53,8 +53,10 @@ export default async function ContactUsPage() {
               className="object-cover"
             />
           )}
-          {/* navy tint keeps the white text readable on any photo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B215C]/95 via-[#0E2662]/90 to-[#0E2662]/80" />
+          {/* deep teakwood-brown tint (same warm tone as the About Us banner) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#301200]/95 via-[#2F1C09]/75 to-[#280F01]/45" />
+          {/* subtle gold edge */}
+          <div className="absolute inset-x-0 bottom-0 h-px bg-[#D68921]/50" />
 
           <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-20 pt-36 lg:px-12 lg:pb-[7.2rem] lg:pt-[7.625rem]">
             <h1
@@ -62,7 +64,7 @@ export default async function ContactUsPage() {
             >
               {data.heading || DEFAULT_CONTACT_HEADING}
             </h1>
-            <p className="mt-6 max-w-[600px] text-base leading-[1.7] text-[#f2e9dd]/75">
+            <p className="mt-6 max-w-[600px] text-base leading-[1.7] text-[#f2e9dd]/85">
               {data.description || DEFAULT_CONTACT_DESCRIPTION}
             </p>
           </div>
