@@ -10,7 +10,22 @@ export default function NewsletterForm() {
 
   return (
     <form action={formAction} className="w-full">
-      <div className="flex flex-col gap-3 sm:flex-row">
+      {/* One pill: mail icon + input on the left, gold button attached on the right */}
+      <div className="flex items-center gap-2 rounded-full border border-white/15 bg-[#f2e9dd]/10 p-1.5 pl-5 backdrop-blur-sm transition-colors focus-within:border-[#D68921] focus-within:ring-2 focus-within:ring-[#D68921]/40">
+        <svg
+          aria-hidden
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5 shrink-0 text-[#f2e9dd]/80"
+        >
+          <rect width="20" height="16" x="2" y="4" rx="2" />
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </svg>
+
         <label htmlFor="newsletter-email" className="sr-only">
           E-mail Address
         </label>
@@ -25,7 +40,7 @@ export default function NewsletterForm() {
           defaultValue={state.email}
           aria-invalid={state.status === "error"}
           aria-describedby="newsletter-feedback"
-          className="h-[52px] w-full flex-1 rounded-full border border-white/15 bg-white/[0.06] px-6 text-[15px] text-[#f2e9dd] placeholder:text-[#f2e9dd]/45 backdrop-blur-sm transition-colors focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          className="h-11 min-w-0 flex-1 bg-transparent px-1 text-[15px] text-[#f2e9dd] placeholder:text-[#f2e9dd]/55 focus:outline-none"
         />
 
         {/* Honeypot: hidden from people and screen readers, bots tend to fill it */}
@@ -46,9 +61,10 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={pending}
-          className="h-[52px] shrink-0 rounded-full bg-[#432115] px-8 text-[15px] font-semibold text-[#D2AD93] transition-colors duration-200 hover:bg-[#432115] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-[#E3A035] px-5 text-[15px] font-semibold text-[#301200] transition-colors duration-200 hover:bg-[#D68921] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E3A035] disabled:cursor-not-allowed disabled:opacity-70 sm:px-7"
         >
           {pending ? "Subscribing…" : "Subscribe"}
+          {!pending && <span aria-hidden>→</span>}
         </button>
       </div>
 

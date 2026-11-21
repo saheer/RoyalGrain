@@ -13,9 +13,16 @@ type Props = {
 };
 
 // Shown until the fields are filled in Sanity
-const DEFAULT_HEADING = "Subscribe to our newsletter";
+const DEFAULT_HEADING = "Newsletter Section";
 const DEFAULT_SUBTITLE =
-  "for the latest destination guides, travel tips and holiday ideas from Royal Grain.";
+  "Join our mailing list for the latest arrivals in custom woodwork, interior inspirations, and exclusive offers straight from our workshop.";
+
+// "Newsletter Section" -> ["Newsletter ", "Section"] (last word is set in gold)
+function splitLastWord(text: string): [string, string] {
+  const t = text.trim();
+  const i = t.lastIndexOf(" ");
+  return i === -1 ? ["", t] : [t.slice(0, i + 1), t.slice(i + 1)];
+}
 
 export default function NewsletterSection({
   heading,
@@ -31,11 +38,12 @@ export default function NewsletterSection({
     : undefined;
   // The video is only used when "Video" is selected AND a file / URL exists
   const showVideo = backgroundType === "video" && !!videoUrl;
+  const [headStart, headEnd] = splitLastWord(heading || DEFAULT_HEADING);
 
   return (
     <section
       aria-labelledby="newsletter-heading"
-      className="relative isolate overflow-hidden bg-[#2F1200]"
+      className="relative isolate overflow-hidden bg-[#301200]"
     >
       {/* Image: the background itself, or the poster/fallback behind the video */}
       {image && (
@@ -66,16 +74,17 @@ export default function NewsletterSection({
       )}
 
       {/* Dark overlay keeps the text readable on any image or video */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/70 via-[#2F1200]/70 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2F1200]/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#301200]/85 via-[#2F1C09]/70 to-[#321301]/75" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#301200]/70 to-transparent" />
       <div className="relative z-10 mx-auto flex max-w-[1338px] flex-col items-center px-6 py-16 text-center lg:px-12">
         <h2
           id="newsletter-heading"
-          className={`${manrope.className} text-2.4xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] sm:text-2.2xl lg:text-[3rem]`}
+          className={`${manrope.className} text-4xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] lg:text-[3rem]`}
         >
-          {heading || DEFAULT_HEADING}
+          {headStart}
+          <span className="text-[#D68921]">{headEnd}</span>
         </h2>
-        <p className="mt-4 max-w-[600px] text-[15.5px] leading-[1.7] text-[#f2e9dd]/75 lg:text-base">
+        <p className="mt-4 max-w-[640px] text-[15.5px] leading-[1.7] text-[#f2e9dd]/85 lg:text-base">
           {subtitle || DEFAULT_SUBTITLE}
         </p>
 

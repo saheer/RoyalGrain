@@ -39,7 +39,7 @@ export const hotspotPosition = (hotspot?: { x: number; y: number } | null) =>
 
 function CategoryTag({ children }: { children: string }) {
   return (
-    <span className="absolute left-3.5 top-3.5 z-10 rounded-full bg-white/90 px-3.5 py-1.5 text-[10.5px] font-semibold uppercase leading-none tracking-[0.08em] text-[#0E1D48] shadow-sm">
+    <span className="absolute left-3.5 top-3.5 z-10 rounded-full bg-[#FFFBF5]/95 px-3.5 py-1.5 text-[10.5px] font-semibold uppercase leading-none tracking-[0.08em] text-[#301200] shadow-sm">
       {children}
     </span>
   );
@@ -52,7 +52,7 @@ function ReadMore({ href, title }: { href: string; title?: string | null }) {
     <Link
       href={href}
       aria-label={title ? `Read more: ${title}` : undefined}
-      className="inline-flex items-center gap-2 text-sm font-semibold text-[#244598] transition-colors after:absolute after:inset-0 after:content-[''] hover:text-[#16306E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244598]"
+      className="inline-flex items-center gap-2 text-sm font-semibold text-[#B0620A] transition-colors after:absolute after:inset-0 after:content-[''] hover:text-[#8A4A06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]"
     >
       Read More
       <svg
@@ -85,7 +85,7 @@ export function GuideCard({
   const href = postHref(post.slug);
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#DCE3EF] bg-white transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(16,40,100,0.10)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#EBD3AE] bg-[#FFFBF5] shadow-[0_8px_30px_rgba(47,18,0,0.06)] transition-shadow duration-300 hover:shadow-[0_14px_44px_rgba(47,18,0,0.13)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#2F1200]">
         {post.image && (
           <Image
@@ -103,7 +103,7 @@ export function GuideCard({
 
       <div className="flex flex-1 flex-col p-6 lg:p-7">
         <h3
-          className={`${manrope.className} text-[19px] font-semibold leading-snug text-[#2F1200]`}
+          className={`${manrope.className} text-[19px] font-semibold leading-snug text-[#301200]`}
         >
           {post.title}
         </h3>
@@ -126,7 +126,7 @@ export function GuideFeaturedCard({ post }: { post: GuidePost }) {
   const href = postHref(post.slug);
 
   return (
-    <article className="group relative grid overflow-hidden rounded-3xl border border-[#DCE3EF] bg-white lg:grid-cols-2">
+    <article className="group relative grid overflow-hidden rounded-3xl border border-[#EBD3AE] bg-[#FFFBF5] lg:grid-cols-2">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#2F1200] lg:aspect-auto lg:min-h-[428px]">
         {post.image && (
           <Image

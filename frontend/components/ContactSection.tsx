@@ -1,12 +1,11 @@
 import { manrope } from "@/app/fonts";
 import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
-import {
-  DEFAULT_CONTACT_DESCRIPTION,
-  DEFAULT_CONTACT_HEADING,
-} from "@/lib/enquiry";
 
 type Props = {
+  // heading / description belong to the Contact PAGE banner ("Get in Touch"), so this
+  // home section keeps its own title. Everything below comes from the "Contact Us"
+  // document in Sanity (with safe fallbacks inside ContactInfo).
   heading?: string | null;
   description?: string | null;
   generalEmail?: string | null;
@@ -16,41 +15,50 @@ type Props = {
   address?: string | null;
 };
 
+const HOME_HEADING = "Have an Enquiry?";
+const HOME_DESCRIPTION =
+  "Planning a custom piece or a complete interior? Tell us about your space and we will get back to you shortly.";
+
 export default function ContactSection({
-  heading,
-  description,
   generalEmail,
   bookingEmail,
   phone,
   whatsapp,
   address,
 }: Props) {
+  const i = HOME_HEADING.lastIndexOf(" ");
+  const headStart = HOME_HEADING.slice(0, i + 1);
+  const headEnd = HOME_HEADING.slice(i + 1);
+
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-[#FFFBF5] py-16 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1338px] items-start gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)] lg:gap-14 lg:px-12">
-        {/* Left: heading, description, emails, phone, WhatsApp, address */}
+        {/* Left: heading, description, then address / phone / WhatsApp / emails */}
         <div className="lg:max-w-[485px]">
+          <span aria-hidden className="block h-px w-6 bg-[#D68921]" />
           <h2
             id="contact-heading"
-            className={`${manrope.className} text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#2F1200] lg:text-[3.5rem]`}
+            className={`${manrope.className} mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#301200] lg:text-[3.5rem]`}
           >
-            {heading || DEFAULT_CONTACT_HEADING}
+            {headStart}
+            <span className="text-[#D68921]">{headEnd}</span>
           </h2>
-          <p className="mt-6 text-base leading-[1.65] text-[#432115]">
-            {description || DEFAULT_CONTACT_DESCRIPTION}
+          <p className="mt-6 text-base leading-[1.65] text-[#2F1C09]/80">
+            {HOME_DESCRIPTION}
           </p>
-          <hr className="my-9 border-[#D9E4F0]" />
-          <ContactInfo
-            generalEmail={generalEmail}
-            bookingEmail={bookingEmail}
-            phone={phone}
-            whatsapp={whatsapp}
-            address={address}
-          />
+          <div className="mt-9">
+            <ContactInfo
+              generalEmail={generalEmail}
+              bookingEmail={bookingEmail}
+              phone={phone}
+              whatsapp={whatsapp}
+              address={address}
+            />
+          </div>
         </div>
 
         {/* Right: the form card */}

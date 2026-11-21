@@ -150,7 +150,10 @@ export default function ContactForm() {
           </svg>
         </div>
         {errors.type && (
-          <p id={`${uid}-type-error`} className="mt-1.5 text-[13px] text-red-600">
+          <p
+            id={`${uid}-type-error`}
+            className="mt-1.5 text-[13px] text-red-600"
+          >
             {errors.type}
           </p>
         )}
