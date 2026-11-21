@@ -62,7 +62,7 @@ export default defineType({
       rows: 3,
       group: 'brand',
       initialValue:
-        'Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Thoughtfully planned journeys. Memorable holidays.',
+        'Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Custom teakwood doors, handcrafted furniture & timeless interiors.',
     }),
     defineField({
       name: 'socialLinks',
@@ -126,30 +126,31 @@ export default defineType({
     // ---------- Link columns ----------
     defineField({
       name: 'indexTitle',
-      title: 'Index column title',
+      title: 'Quick Links column title',
       type: 'string',
       group: 'links',
-      initialValue: 'Index',
+      initialValue: 'Quick Links',
     }),
-    linkList('indexLinks', 'Index links', [
+    linkList('indexLinks', 'Quick Links', [
       {label: 'About Us', url: '/about-us'},
-      {label: 'Holidays', url: '/explore-collections'},
+      {label: 'Collections', url: '/explore-collections'},
       {label: 'Instagram Feed', url: '/instagram-feed'},
       {label: 'Design Guide', url: '/design-guide'},
       {label: 'Contact Us', url: '/contact-us'},
     ]),
     defineField({
       name: 'holidaysTitle',
-      title: 'Holidays column title',
+      title: 'Our Expertise column title',
       type: 'string',
       group: 'links',
-      initialValue: 'Holidays',
+      initialValue: 'Our Expertise',
     }),
-    linkList('holidayLinks', 'Holidays links', [
-      {label: 'Backwater Cruises', url: '/explore-collections'},
-      {label: 'Hill Stations', url: '/explore-collections'},
-      {label: 'Beach Getaways', url: '/explore-collections'},
-      {label: 'Wildlife & Nature', url: '/explore-collections'},
+    linkList('holidayLinks', 'Our Expertise links', [
+      {label: 'Custom Furniture', url: '/our-expertise'},
+      {label: 'Interior Woodwork', url: '/our-expertise'},
+      {label: 'Bespoke Interiors', url: '/our-expertise'},
+      {label: 'Residential Interiors', url: '/our-expertise'},
+      {label: 'Commercial Interiors', url: '/our-expertise'},
     ]),
 
     // ---------- Bottom bar ----------

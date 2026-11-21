@@ -7,10 +7,11 @@ type LinkItem = { label?: string | null; url?: string | null };
 type SocialItem = LinkItem & { platform?: string | null };
 type Item = { label: string; url: string };
 
-// Shown until the "Footer" document is published in Sanity (each list falls back separately)
+// Shown until the "Footer" document is published in Sanity (each list falls back separately).
+// NOTE: once the Footer document is published, its values replace these defaults.
 const DEFAULTS = {
   description:
-    "Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Thoughtfully planned journeys. Memorable holidays.",
+    "Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Custom teakwood doors, handcrafted furniture & timeless interiors.",
   social: [
     {
       platform: "linkedin",
@@ -23,20 +24,22 @@ const DEFAULTS = {
       url: "https://www.instagram.com/royalgrain/",
     },
   ] as SocialItem[],
-  indexTitle: "Index",
-  index: [
+  quickLinksTitle: "Quick Links",
+  quickLinks: [
     { label: "About Us", url: "/about-us" },
-    { label: "Holidays", url: "/explore-collections" },
+    { label: "Collections", url: "/explore-collections" },
     { label: "Instagram Feed", url: "/instagram-feed" },
     { label: "Design Guide", url: "/design-guide" },
     { label: "Contact Us", url: "/contact-us" },
   ] as Item[],
-  holidaysTitle: "Holidays",
-  holidays: [
-    { label: "Backwater Cruises", url: "/explore-collections" },
-    { label: "Hill Stations", url: "/explore-collections" },
-    { label: "Beach Getaways", url: "/explore-collections" },
-    { label: "Wildlife & Nature", url: "/explore-collections" },
+  // No dedicated page per service yet, so every item opens the Our Expertise page (no 404s)
+  expertiseTitle: "Our Expertise",
+  expertise: [
+    { label: "Custom Furniture", url: "/our-expertise" },
+    { label: "Interior Woodwork", url: "/our-expertise" },
+    { label: "Bespoke Interiors", url: "/our-expertise" },
+    { label: "Residential Interiors", url: "/our-expertise" },
+    { label: "Commercial Interiors", url: "/our-expertise" },
   ] as Item[],
   copyright: "© 2026 Royal Grain Woodcraft & Interiors. All rights reserved.",
   legal: [
@@ -105,11 +108,13 @@ const headingCls =
   "text-sm font-semibold uppercase tracking-[0.2em] text-[#D68921]";
 
 export default async function Footer() {
-  const data = (await getFooter()) ?? {};
+  // If Sanity is unreachable or the document is empty, the footer still renders with the defaults
+  const data = (await getFooter().catch(() => null)) ?? {};
 
   const social = items<SocialItem>(data.socialLinks, DEFAULTS.social);
-  const indexLinks = items<LinkItem>(data.indexLinks, DEFAULTS.index);
-  const holidayLinks = items<LinkItem>(data.holidayLinks, DEFAULTS.holidays);
+  // Sanity field names stay indexTitle/indexLinks and holidaysTitle/holidayLinks (no data migration needed)
+  const quickLinks = items<LinkItem>(data.indexLinks, DEFAULTS.quickLinks);
+  const expertiseLinks = items<LinkItem>(data.holidayLinks, DEFAULTS.expertise);
   const legalLinks = items<LinkItem>(data.legalLinks, DEFAULTS.legal);
 
   return (
@@ -150,13 +155,13 @@ export default async function Footer() {
             </div>
           </div>
 
-          {/* Index */}
-          <nav aria-labelledby="footer-index-heading">
-            <h2 id="footer-index-heading" className={headingCls}>
-              {data.indexTitle || DEFAULTS.indexTitle}
+          {/* Quick Links */}
+          <nav aria-labelledby="footer-quick-links-heading">
+            <h2 id="footer-quick-links-heading" className={headingCls}>
+              {data.indexTitle || DEFAULTS.quickLinksTitle}
             </h2>
             <ul className="mt-[1.65rem] space-y-3">
-              {indexLinks.map((l) => (
+              {quickLinks.map((l) => (
                 <li key={`${l.label}-${l.url}`}>
                   <FooterLink href={l.url} className={linkCls}>
                     {l.label}
@@ -166,13 +171,13 @@ export default async function Footer() {
             </ul>
           </nav>
 
-          {/* Holidays */}
-          <nav aria-labelledby="footer-holidays-heading">
-            <h2 id="footer-holidays-heading" className={headingCls}>
-              {data.holidaysTitle || DEFAULTS.holidaysTitle}
+          {/* Our Expertise */}
+          <nav aria-labelledby="footer-expertise-heading">
+            <h2 id="footer-expertise-heading" className={headingCls}>
+              {data.holidaysTitle || DEFAULTS.expertiseTitle}
             </h2>
             <ul className="mt-[1.65rem] space-y-3">
-              {holidayLinks.map((l) => (
+              {expertiseLinks.map((l) => (
                 <li key={`${l.label}-${l.url}`}>
                   <FooterLink href={l.url} className={linkCls}>
                     {l.label}
