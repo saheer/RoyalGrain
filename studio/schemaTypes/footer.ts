@@ -80,21 +80,20 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
-                  {title: 'LinkedIn', value: 'linkedin'},
                   {title: 'X (Twitter)', value: 'x'},
                   {title: 'Facebook', value: 'facebook'},
                   {title: 'Instagram', value: 'instagram'},
                   {title: 'YouTube', value: 'youtube'},
                 ],
               },
-              initialValue: 'linkedin',
+              initialValue: 'facebook',
               validation: (r) => r.required(),
             }),
             defineField({
               name: 'label',
               title: 'Button text',
               type: 'string',
-              initialValue: 'LinkedIn',
+              initialValue: 'Facebook',
               validation: (r) => r.required(),
             }),
             defineField({
@@ -110,9 +109,9 @@ export default defineType({
       initialValue: [
         {
           _type: 'social',
-          platform: 'linkedin',
-          label: 'LinkedIn',
-          url: 'https://www.linkedin.com/company/royal-grain/',
+          platform: 'facebook',
+          label: 'Facebook',
+          url: 'https://www.facebook.com/royalgrainwoodcraft',
         },
         {
           _type: 'social',
@@ -146,11 +145,11 @@ export default defineType({
       initialValue: 'Our Expertise',
     }),
     linkList('holidayLinks', 'Our Expertise links', [
-      {label: 'Custom Furniture', url: '/our-expertise'},
-      {label: 'Interior Woodwork', url: '/our-expertise'},
-      {label: 'Bespoke Interiors', url: '/our-expertise'},
-      {label: 'Residential Interiors', url: '/our-expertise'},
-      {label: 'Commercial Interiors', url: '/our-expertise'},
+      {label: 'Custom Furniture', url: '/our-expertise/custom-furniture'},
+      {label: 'Interior Woodwork', url: '/our-expertise/interior-woodwork'},
+      {label: 'Bespoke Interiors', url: '/our-expertise/bespoke-interiors'},
+      {label: 'Residential Interiors', url: '/our-expertise/residential-interiors'},
+      {label: 'Commercial Interiors', url: '/our-expertise/commercial-interiors'},
     ]),
 
     // ---------- Bottom bar ----------

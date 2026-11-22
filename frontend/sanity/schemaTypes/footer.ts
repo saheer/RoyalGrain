@@ -62,7 +62,7 @@ export default defineType({
       rows: 3,
       group: 'brand',
       initialValue:
-        'Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Thoughtfully planned journeys. Memorable holidays.',
+        'Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Custom teakwood doors, handcrafted furniture & timeless interiors.',
     }),
     defineField({
       name: 'socialLinks',
@@ -80,21 +80,20 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
-                  {title: 'LinkedIn', value: 'linkedin'},
                   {title: 'X (Twitter)', value: 'x'},
                   {title: 'Facebook', value: 'facebook'},
                   {title: 'Instagram', value: 'instagram'},
                   {title: 'YouTube', value: 'youtube'},
                 ],
               },
-              initialValue: 'linkedin',
+              initialValue: 'facebook',
               validation: (r) => r.required(),
             }),
             defineField({
               name: 'label',
               title: 'Button text',
               type: 'string',
-              initialValue: 'LinkedIn',
+              initialValue: 'Facebook',
               validation: (r) => r.required(),
             }),
             defineField({
@@ -110,9 +109,9 @@ export default defineType({
       initialValue: [
         {
           _type: 'social',
-          platform: 'linkedin',
-          label: 'LinkedIn',
-          url: 'https://www.linkedin.com/company/royal-grain/',
+          platform: 'facebook',
+          label: 'Facebook',
+          url: 'https://www.facebook.com/royalgrainwoodcraft',
         },
         {
           _type: 'social',
@@ -126,30 +125,31 @@ export default defineType({
     // ---------- Link columns ----------
     defineField({
       name: 'indexTitle',
-      title: 'Index column title',
+      title: 'Quick Links column title',
       type: 'string',
       group: 'links',
-      initialValue: 'Index',
+      initialValue: 'Quick Links',
     }),
-    linkList('indexLinks', 'Index links', [
+    linkList('indexLinks', 'Quick Links', [
       {label: 'About Us', url: '/about-us'},
-      {label: 'Holidays', url: '/explore-collections'},
+      {label: 'Collections', url: '/explore-collections'},
       {label: 'Instagram Feed', url: '/instagram-feed'},
       {label: 'Design Guide', url: '/design-guide'},
       {label: 'Contact Us', url: '/contact-us'},
     ]),
     defineField({
       name: 'holidaysTitle',
-      title: 'Holidays column title',
+      title: 'Our Expertise column title',
       type: 'string',
       group: 'links',
-      initialValue: 'Holidays',
+      initialValue: 'Our Expertise',
     }),
-    linkList('holidayLinks', 'Holidays links', [
-      {label: 'Backwater Cruises', url: '/explore-collections'},
-      {label: 'Hill Stations', url: '/explore-collections'},
-      {label: 'Beach Getaways', url: '/explore-collections'},
-      {label: 'Wildlife & Nature', url: '/explore-collections'},
+    linkList('holidayLinks', 'Our Expertise links', [
+      {label: 'Custom Furniture', url: '/our-expertise/custom-furniture'},
+      {label: 'Interior Woodwork', url: '/our-expertise/interior-woodwork'},
+      {label: 'Bespoke Interiors', url: '/our-expertise/bespoke-interiors'},
+      {label: 'Residential Interiors', url: '/our-expertise/residential-interiors'},
+      {label: 'Commercial Interiors', url: '/our-expertise/commercial-interiors'},
     ]),
 
     // ---------- Bottom bar ----------

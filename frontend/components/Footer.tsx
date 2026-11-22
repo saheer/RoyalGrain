@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { getFooter } from "@/sanity/lib/getFooter";
+import { resolveExpertiseHref } from "@/lib/expertisePages";
 
 type LinkItem = { label?: string | null; url?: string | null };
 type SocialItem = LinkItem & { platform?: string | null };
@@ -14,9 +15,9 @@ const DEFAULTS = {
     "Royal Grain Woodcraft & Interiors, Puthentheru, Kerala — Custom teakwood doors, handcrafted furniture & timeless interiors.",
   social: [
     {
-      platform: "linkedin",
-      label: "LinkedIn",
-      url: "https://www.linkedin.com/company/royal-grain/",
+      platform: "facebook",
+      label: "Facebook",
+      url: "https://www.facebook.com/royalgrainwoodcraft",
     },
     {
       platform: "instagram",
@@ -32,14 +33,20 @@ const DEFAULTS = {
     { label: "Design Guide", url: "/design-guide" },
     { label: "Contact Us", url: "/contact-us" },
   ] as Item[],
-  // No dedicated page per service yet, so every item opens the Our Expertise page (no 404s)
+  // Each item has its own page under /our-expertise/<slug> (see lib/expertisePages.ts)
   expertiseTitle: "Our Expertise",
   expertise: [
-    { label: "Custom Furniture", url: "/our-expertise" },
-    { label: "Interior Woodwork", url: "/our-expertise" },
-    { label: "Bespoke Interiors", url: "/our-expertise" },
-    { label: "Residential Interiors", url: "/our-expertise" },
-    { label: "Commercial Interiors", url: "/our-expertise" },
+    { label: "Custom Furniture", url: "/our-expertise/custom-furniture" },
+    { label: "Interior Woodwork", url: "/our-expertise/interior-woodwork" },
+    { label: "Bespoke Interiors", url: "/our-expertise/bespoke-interiors" },
+    {
+      label: "Residential Interiors",
+      url: "/our-expertise/residential-interiors",
+    },
+    {
+      label: "Commercial Interiors",
+      url: "/our-expertise/commercial-interiors",
+    },
   ] as Item[],
   copyright: "© 2026 Royal Grain Woodcraft & Interiors. All rights reserved.",
   legal: [
@@ -48,9 +55,8 @@ const DEFAULTS = {
   ] as Item[],
 };
 
-// Small text badge shown in the white square of the social button (like the "in" of LinkedIn)
+// Small text badge shown in the white square of the social button (like the "f" of Facebook)
 const BADGE: Record<string, string> = {
-  linkedin: "in",
   x: "X",
   facebook: "f",
   instagram: "ig",
@@ -103,7 +109,7 @@ function FooterLink({
 }
 
 const linkCls =
-  "text-[16px] leading-6 text-[#f2e9dd] transition-colors hover:text-[#f2e9dd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]";
+  "text-[16px] leading-6 text-[#f2e9dd] transition-colors hover:text-[#D68921] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]";
 const headingCls =
   "text-sm font-semibold uppercase tracking-[0.2em] text-[#D68921]";
 
@@ -188,7 +194,10 @@ export default async function Footer() {
             <ul className="mt-[1.65rem] space-y-3">
               {expertiseLinks.map((l) => (
                 <li key={`${l.label}-${l.url}`}>
-                  <FooterLink href={l.url} className={linkCls}>
+                  <FooterLink
+                    href={resolveExpertiseHref(l.label, l.url)}
+                    className={linkCls}
+                  >
                     {l.label}
                   </FooterLink>
                 </li>
@@ -210,7 +219,7 @@ export default async function Footer() {
               >
                 <FooterLink
                   href={l.url}
-                  className="text-[15px] text-[#f2e9dd] transition-colors hover:text-[#f2e9dd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]"
+                  className="text-[15px] text-[#f2e9dd] transition-colors hover:text-[#D68921] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]"
                 >
                   {l.label}
                 </FooterLink>
