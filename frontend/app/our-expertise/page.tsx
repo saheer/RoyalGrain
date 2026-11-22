@@ -1,65 +1,62 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { notFound } from "next/navigation";
-import PlaceholderPage from "@/components/PlaceholderPage";
-import { EXPERTISE_PAGES, getExpertisePage } from "@/lib/expertisePages";
+import Header from "@/components/Header";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
+import InstagramHero from "@/components/InstagramHero";
+import OurExpertiseSection from "@/components/OurExpertiseSection";
+import ExpertiseLinksSection from "@/components/ExpertiseLinksSection";
+import { getOurExpertise } from "@/sanity/lib/getOurExpertise";
+import { getExpertiseIndex } from "@/sanity/lib/getExpertisePage";
 import { buildMetadata } from "@/sanity/lib/seo";
+import { getPageSeo } from "@/sanity/lib/getPageSeo";
 
-type Props = { params: Promise<{ slug: string }> };
-
-// Every expertise page is known at build time
-export function generateStaticParams() {
-  return EXPERTISE_PAGES.map(({ slug }) => ({ slug }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const page = getExpertisePage(slug);
-  if (!page)
-    return { title: "Page not found | Royal Grain", robots: { index: false } };
-
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageSeo("ourExpertisePage");
   return buildMetadata({
-    // Placeholder page: keep it out of search results until the real content is added
-    // (remove `noIndex` then)
-    seo: { noIndex: true },
-    path: `/our-expertise/${slug}`,
+    seo: page?.seo,
+    path: "/our-expertise",
     fallback: {
-      title: `${page.label} | Royal Grain`,
-      description: page.description,
+      title: "Our Expertise | Royal Grain",
+      description:
+        "Doors, beds, swings and complete interiors, built from solid teakwood with traditional joinery.",
     },
   });
 }
 
-// NOT async: `params` is URL data, so it is awaited only inside <Suspense>
-// (same pattern as the other [slug] pages).
-export default function ExpertiseDetailPage({ params }: Props) {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#2F1200]" />}>
-      <ExpertiseContent params={params} />
-    </Suspense>
-  );
-}
-
-async function ExpertiseContent({ params }: Props) {
-  const { slug } = await params;
-  const page = getExpertisePage(slug);
-  if (!page) notFound();
+// The /our-expertise overview page: hero + the "Our Expertise" cards (Sanity > Our Expertise Page).
+// The five detail pages live in app/our-expertise/[slug]/page.tsx.
+export default async function OurExpertisePage() {
+  const [page, expertisePages] = await Promise.all([
+    getOurExpertise().catch(() => null),
+    getExpertiseIndex(),
+  ]);
 
   return (
-    <PlaceholderPage
-      eyebrow="Our Expertise"
-      headingWhite={page.headingWhite}
-      headingBlue={page.headingBlue}
-      description={page.description}
-      cardHeading="Full details coming soon"
-      cardText={`We are preparing a complete page for ${page.label.toLowerCase()}. Until then, tell us about your project and our team will be happy to help.`}
-      relatedHeading="More from Our Expertise"
-      related={[
-        ...EXPERTISE_PAGES.filter((p) => p.slug !== slug).map((p) => ({
-          title: p.label,
-          href: `/our-expertise/${p.slug}`,
-        })),
-      ]}
-    />
+    <>
+      <Header />
+      <main>
+        <InstagramHero
+          eyebrow={page?.heroEyebrow ?? "Our Expertise"}
+          headingWhite={page?.heroHeadingWhite ?? "Solid teakwood,"}
+          headingBlue={page?.heroHeadingBlue ?? "skilfully crafted."}
+          description={
+            page?.heroDescription ??
+            "Doors, beds, swings and complete interiors, built from solid teakwood with traditional joinery."
+          }
+          image={page?.heroBackground}
+          imageAlt={page?.heroBackgroundAlt}
+          hotspot={page?.heroHotspot}
+        />
+        <FadeInWhenVisible>
+          <OurExpertiseSection
+            heading={page?.expertiseHeading}
+            subtitle={page?.expertiseSubtitle}
+            items={page?.expertiseItems}
+          />
+        </FadeInWhenVisible>
+        <FadeInWhenVisible>
+          <ExpertiseLinksSection pages={expertisePages} />
+        </FadeInWhenVisible>
+      </main>
+    </>
   );
 }

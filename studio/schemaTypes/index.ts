@@ -7,6 +7,7 @@ import footer from "./footer";
 import holiday from "./holiday";
 import instagramFeed from "./instagramFeed";
 import ourExpertisePage from "./ourExpertisePage";
+import expertisePage from "./expertisePage";
 import post from "./post";
 import postCategory from "./postCategory";
 import seoFields from "./seoFields";
@@ -22,6 +23,7 @@ export const schemaTypes = [
   holiday,
   instagramFeed,
   ourExpertisePage,
+  expertisePage,
   post,
   postCategory,
 ];

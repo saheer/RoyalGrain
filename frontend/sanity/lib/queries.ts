@@ -435,3 +435,42 @@ export const ourExpertiseQuery = groq`
     expertiseItems[]{_key, icon, title, description}
   }
 `
+
+
+// One of the five /our-expertise/<slug> detail pages (document type "expertisePage")
+export const expertisePageBySlugQuery = groq`
+  *[_type == "expertisePage" && slug.current == $slug][0]{
+    menuName,
+    "slug": slug.current,
+    bannerEyebrow,
+    title,
+    titleAccent,
+    bannerCopy,
+    ctaLabel,
+    ctaLink,
+    "bannerImage": bannerImage.asset->url,
+    "bannerImageAlt": bannerImage.alt,
+    "bannerHotspot": bannerImage.hotspot{x, y},
+    overview,
+    menuIcon,
+    listHeading,
+    listCards[]{icon, text},
+    listItems,
+    focusHeading,
+    focusText,
+    ${seoFragment}
+  }
+`
+
+
+// Every published expertise page (menu name + address + a one-line description), oldest first.
+// Merged with the built-in five in lib/expertisePages.ts (buildExpertiseIndex).
+export const expertisePagesListQuery = groq`
+  *[_type == "expertisePage" && defined(slug.current)] | order(_createdAt asc){
+    "slug": slug.current,
+    menuName,
+    title,
+    bannerCopy,
+    menuIcon
+  }
+`

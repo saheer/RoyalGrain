@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { getFooter } from "@/sanity/lib/getFooter";
 import { resolveExpertiseHref } from "@/lib/expertisePages";
+import { getExpertiseIndex } from "@/sanity/lib/getExpertisePage";
 
 type LinkItem = { label?: string | null; url?: string | null };
 type SocialItem = LinkItem & { platform?: string | null };
@@ -39,14 +40,8 @@ const DEFAULTS = {
     { label: "Custom Furniture", url: "/our-expertise/custom-furniture" },
     { label: "Interior Woodwork", url: "/our-expertise/interior-woodwork" },
     { label: "Bespoke Interiors", url: "/our-expertise/bespoke-interiors" },
-    {
-      label: "Residential Interiors",
-      url: "/our-expertise/residential-interiors",
-    },
-    {
-      label: "Commercial Interiors",
-      url: "/our-expertise/commercial-interiors",
-    },
+    { label: "Residential Interiors", url: "/our-expertise/residential-interiors" },
+    { label: "Commercial Interiors", url: "/our-expertise/commercial-interiors" },
   ] as Item[],
   copyright: "© 2026 Royal Grain Woodcraft & Interiors. All rights reserved.",
   legal: [
@@ -120,7 +115,16 @@ export default async function Footer() {
   const social = items<SocialItem>(data.socialLinks, DEFAULTS.social);
   // Sanity field names stay indexTitle/indexLinks and holidaysTitle/holidayLinks (no data migration needed)
   const quickLinks = items<LinkItem>(data.indexLinks, DEFAULTS.quickLinks);
-  const expertiseLinks = items<LinkItem>(data.holidayLinks, DEFAULTS.expertise);
+  // Until the Footer document has its own Expertise links, list every expertise page
+  // (the original five plus any added in Sanity, under their current names)
+  const expertisePages = await getExpertiseIndex().catch(() => null);
+  const defaultExpertise: Item[] = expertisePages
+    ? expertisePages.map((p) => ({
+        label: p.label,
+        url: `/our-expertise/${p.slug}`,
+      }))
+    : DEFAULTS.expertise;
+  const expertiseLinks = items<LinkItem>(data.holidayLinks, defaultExpertise);
   const legalLinks = items<LinkItem>(data.legalLinks, DEFAULTS.legal);
 
   return (

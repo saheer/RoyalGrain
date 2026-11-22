@@ -53,6 +53,7 @@ export default defineConfig({
               .title('Our Expertise Page')
               .id('ourExpertisePage')
               .child(S.document().schemaType('ourExpertisePage').documentId('ourExpertisePage')),
+            S.documentTypeListItem('expertisePage').title('Expertise Pages (the 5 detail pages)'),
 
             S.listItem()
               .title('Contact Us')
