@@ -24,7 +24,7 @@ export default defineType({
     {name: 'hero', title: 'Hero Banner', default: true},
     {name: 'logos', title: 'Logo Slider'},
     {name: 'featured', title: 'Featured Collection'},
-    {name: 'packages', title: 'Holiday Packages'},
+    {name: 'packages', title: 'Highlight Cards'},
     {name: 'holidays', title: 'Explore Collections'},
     {name: 'why', title: 'Why Royal Grain (media + features)'},
     {name: 'testimonials', title: 'Client Speak (Testimonials)'},
@@ -312,7 +312,7 @@ export default defineType({
         {
           type: 'object',
           name: 'holidayItem',
-          title: 'Holiday',
+          title: 'Collection',
           fields: [
             defineField({
               name: 'title',

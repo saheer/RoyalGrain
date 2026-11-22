@@ -1,5 +1,5 @@
-import { manrope } from "@/app/fonts";
-import HolidayIcon from "@/components/holiday/HolidayIcon";
+import { playfair } from "@/app/fonts";
+import CollectionIcon from "@/components/collection/CollectionIcon";
 
 type Item = {
   _key: string;
@@ -8,7 +8,7 @@ type Item = {
   icon?: string | null;
 };
 
-export default function HolidayCoverGrid({
+export default function CollectionCoverGrid({
   heading,
   intro,
   items,
@@ -22,14 +22,14 @@ export default function HolidayCoverGrid({
 
   return (
     <section
-      aria-labelledby="holiday-cover-heading"
+      aria-labelledby="collection-cover-heading"
       className="bg-[#FCF1E2] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end">
           <h2
-            id="holiday-cover-heading"
-            className={`${manrope.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+            id="collection-cover-heading"
+            className={`${playfair.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
           >
             {heading || "What we cover"}
           </h2>
@@ -46,7 +46,7 @@ export default function HolidayCoverGrid({
               key={c._key}
               className="flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-xl border border-[#EBD3AE] bg-[#FFFBF5] p-6 text-center transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-24px_rgba(47,18,0,0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
-              <HolidayIcon src={c.icon} className="h-10 w-10" />
+              <CollectionIcon src={c.icon} className="h-10 w-10" />
               <div>
                 <h3 className="text-[13px] font-semibold leading-snug text-[#2F1200]">
                   {c.title}

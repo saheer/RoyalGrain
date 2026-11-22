@@ -1,6 +1,6 @@
 import LeafAccent from "@/components/LeafAccent";
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import type { InstagramTile } from "@/lib/instagram";
 
 type Props = {
@@ -96,7 +96,7 @@ export default function InstagramGrid({
             {heading && (
               <h2
                 id="instagram-feed-heading"
-                className={`${manrope.className} mt-4 whitespace-pre-line text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3.25rem]`}
+                className={`${playfair.className} mt-4 whitespace-pre-line text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3.25rem]`}
               >
                 {heading}
               </h2>

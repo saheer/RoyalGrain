@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { playfair } from "@/app/fonts";
 import { cacheLife, cacheTag } from "next/cache";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -126,7 +127,7 @@ export default async function ApproachSection({
           {heading && (
             <h2
               id="approach-heading"
-              className="text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-5xl"
+              className={`${playfair.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-5xl`}
             >
               {heading}
             </h2>
@@ -151,7 +152,7 @@ export default async function ApproachSection({
               <StepIcon step={step} index={i} />
               <span aria-hidden className="h-16 w-px shrink-0 bg-white/15" />
               <div>
-                <h3 className="text-2xl font-semibold leading-tight text-[#f2e9dd] lg:text-[1.75rem]">
+                <h3 className={`${playfair.className} text-2xl font-semibold leading-tight text-[#f2e9dd] lg:text-[1.75rem]`}>
                   {step.title}
                 </h3>
                 {step.subtitle && (

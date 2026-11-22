@@ -2,8 +2,9 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 import {createElement} from 'react'
 import {InlineSvgPreviewItem} from '@focus-reactive/sanity-plugin-inline-svg-input'
 // Singleton: texts of the /explore-collections listing page, plus the "Why Choose Royal Grain"
-// block that is shown on every holiday detail page.
+// block that is shown on every collection detail page.
 export default defineType({
+  // Stored type name stays 'exploreHolidaysPage' (renaming it would hide the existing document)
   name: 'exploreHolidaysPage',
   title: 'Explore Collections Page',
   type: 'document',
@@ -18,7 +19,7 @@ export default defineType({
       title: 'Hero title',
       type: 'string',
       group: 'listing',
-      initialValue: 'Holidays crafted around the way you travel.',
+      initialValue: 'Collections crafted around the way you live.',
       validation: (r) => r.required(),
     }),
     defineField({
@@ -28,7 +29,7 @@ export default defineType({
       rows: 3,
       group: 'listing',
       initialValue:
-        'From Kerala’s backwaters and hill stations to beaches and beyond, we plan holidays for every kind of traveller.',
+        'From teakwood doors and furniture to complete interiors, explore the collections we craft for homes across Kerala and beyond.',
     }),
     defineField({
       name: 'heroBackground',
@@ -44,7 +45,7 @@ export default defineType({
       title: 'Intro heading (above the cards)',
       type: 'string',
       group: 'listing',
-      initialValue: 'Find Your Perfect Holiday',
+      initialValue: 'Find Your Perfect Collection',
     }),
     defineField({
       name: 'introDescription',
@@ -60,10 +61,10 @@ export default defineType({
       title: '"Explore" link text on each card',
       type: 'string',
       group: 'listing',
-      initialValue: 'Explore Holiday',
+      initialValue: 'Explore Collection',
     }),
 
-    // ---------- Shared on every holiday detail page ----------
+    // ---------- Shared on every collection detail page ----------
     defineField({
       name: 'whyChooseHeading',
       title: 'Heading',

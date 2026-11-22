@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import LeafAccent from "@/components/LeafAccent";
 
 type Card = {
@@ -115,7 +115,7 @@ export default function AboutCraftSection({ heading, subtitle, cards }: Props) {
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1.48fr)_minmax(0,1fr)] lg:items-end">
           <h2
             id="craft-heading"
-            className={`${manrope.className} max-w-[560px] text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
+            className={`${playfair.className} max-w-[560px] text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
           >
             {heading || DEFAULTS.heading}
           </h2>
@@ -161,7 +161,7 @@ export default function AboutCraftSection({ heading, subtitle, cards }: Props) {
                 </span>
 
                 <h3
-                  className={`${manrope.className} text-xl font-bold leading-snug text-[#2F1200] lg:text-[1.4rem]`}
+                  className={`${playfair.className} text-xl font-bold leading-snug text-[#2F1200] lg:text-[1.4rem]`}
                 >
                   {card.title}
                 </h3>

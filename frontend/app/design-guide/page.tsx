@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
     fallback: {
       title: "Design Guide | Royal Grain",
       description:
-        "The latest destination guides, travel tips and holiday ideas from Royal Grain.",
+        "The latest interior design ideas, woodcraft tips and project inspiration from Royal Grain.",
     },
   });
 }

@@ -1,5 +1,5 @@
-import { manrope } from "@/app/fonts";
-import HolidayIcon from "@/components/holiday/HolidayIcon";
+import { playfair } from "@/app/fonts";
+import CollectionIcon from "@/components/collection/CollectionIcon";
 
 type Item = {
   _key: string;
@@ -36,7 +36,7 @@ export default function WhyChooseSection({
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
           id="why-choose-heading"
-          className={`${manrope.className} max-w-[600px] text-3xl font-bold leading-[1.1] tracking-tight text-[#f2e9dd] lg:text-[2.75rem]`}
+          className={`${playfair.className} max-w-[600px] text-3xl font-bold leading-[1.1] tracking-tight text-[#f2e9dd] lg:text-[2.75rem]`}
         >
           {heading || "Why Choose Royal Grain"}
         </h2>
@@ -47,7 +47,7 @@ export default function WhyChooseSection({
               key={c._key}
               className="flex min-h-[188px] flex-col items-center justify-center gap-5 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-9 text-center transition-colors duration-300 hover:border-brand-gold/40 hover:bg-white/[0.06]"
             >
-              <HolidayIcon src={c.icon} className="h-14 w-14" />
+              <CollectionIcon src={c.icon} className="h-14 w-14" />
               <div>
                 <h3 className="text-[15px] font-semibold text-[#f2e9dd]">
                   {c.title}

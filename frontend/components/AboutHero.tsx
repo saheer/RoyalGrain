@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Props = {
   headingWhite?: string | null;
@@ -50,7 +50,7 @@ export default function AboutHero({
 
       <div className="relative z-10 mx-auto w-full max-w-[1338px] px-6 pb-24 pt-40 lg:px-12">
         <h1
-          className={`${manrope.className} animate-fade-up text-5xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.25rem]`}
+          className={`${playfair.className} animate-fade-up text-5xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.25rem]`}
         >
           {/* the white part wraps like the design ("Intelligence That / Protects") */}
           <span className="block max-w-[10.5em]">{headingWhite}</span>

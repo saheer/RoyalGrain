@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { splitHeading } from "@/lib/splitHeading";
 import { ArrowIcon, SmartLink } from "./FeaturedParts";
 
@@ -37,7 +37,7 @@ export default function AboutPeopleSection({
           <span aria-hidden className="mb-6 block h-0.5 w-12 bg-[#D68921]" />
           <h2
             id="people-heading"
-            className={`${manrope.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
+            className={`${playfair.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
           >
             {lead}
             {gold && (

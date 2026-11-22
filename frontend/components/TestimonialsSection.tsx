@@ -7,7 +7,7 @@ import {
   type KeyboardEvent,
   type TouchEvent,
 } from "react";
-import { manrope } from "@/app/fonts";
+import { manrope, playfair } from "@/app/fonts";
 import { splitHeading } from "@/lib/splitHeading";
 import LeafAccent from "@/components/LeafAccent";
 
@@ -146,7 +146,7 @@ export default function TestimonialsSection({
             <span aria-hidden className="mb-8 block h-0.5 w-14 bg-[#D68921]" />
             <h2
               id="testimonials-heading"
-              className="text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3.5rem]"
+              className={`${playfair.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3.5rem]`}
             >
               {(() => {
                 const [lead, gold] = splitHeading(
@@ -217,7 +217,7 @@ export default function TestimonialsSection({
                         inert={!isActive}
                         className="testimonial-slide col-start-1 row-start-1"
                       >
-                        <blockquote className="max-w-[840px] text-lg font-semibold italic leading-[1.65] text-[#FFF5E8] lg:text-[1.5rem]">
+                        <blockquote className={`${playfair.className} max-w-[840px] text-lg font-semibold italic leading-[1.65] text-[#FFF5E8] lg:text-[1.5rem]`}>
                           “{stripQuotes(t.quote as string)}”
                         </blockquote>
                       </figure>

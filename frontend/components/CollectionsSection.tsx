@@ -1,11 +1,11 @@
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { loadSvg } from "@/sanity/lib/inlineSvg";
 import { splitHeading } from "@/lib/splitHeading";
 import { ArrowIcon, SmartLink } from "./FeaturedParts";
 import { LINE_ICONS, LineIcon } from "./LineIcon";
 import LeafAccent from "@/components/LeafAccent";
 
-type Holiday = {
+type Collection = {
   _key: string;
   title: string;
   link?: string | null;
@@ -19,9 +19,9 @@ type Props = {
   heading?: string | null;
   headingAccent?: string | null;
   description?: string | null;
-  items?: Holiday[] | null;
+  items?: Collection[] | null;
   buttonLabel?: string | null;
-  holidayButtonLink?: string | null;
+  collectionsButtonLink?: string | null;
 };
 
 // Built-in icon used when a card has no upload and no choice: card 1, 2, 3 ...
@@ -30,7 +30,7 @@ const DEFAULT_PRESETS = ["table", "swing", "bed", "door"];
 const iconBox = "block h-14 w-14 shrink-0 text-[#2F1200] lg:h-16 lg:w-16";
 
 // Uploaded icon (SVG inline, PNG/JPG as image) or, without an upload, the built-in line icon
-async function CardIcon({ item, index }: { item: Holiday; index: number }) {
+async function CardIcon({ item, index }: { item: Collection; index: number }) {
   if (item.icon) {
     const isRaster = !!item.iconType && !item.iconType.includes("svg");
     if (isRaster) {
@@ -65,14 +65,14 @@ const cardHover =
   "hover:-translate-y-1 hover:border-[#D68921]/70 hover:bg-[#FFFBF5] hover:shadow-[0_22px_40px_-24px_rgba(47,18,0,0.4)] motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]";
 
 // Managed in Sanity: Home Page > "Explore Collections"
-export default async function HolidaysSection({
+export default async function CollectionsSection({
   eyebrow,
   heading,
   headingAccent,
   description,
   items,
   buttonLabel,
-  holidayButtonLink,
+  collectionsButtonLink,
 }: Props) {
   const cards = (items ?? []).filter((s) => s?.title);
   if (cards.length === 0) return null;
@@ -87,7 +87,7 @@ export default async function HolidaysSection({
 
   return (
     <section
-      aria-labelledby="holidays-heading"
+      aria-labelledby="collections-heading"
       className="relative isolate bg-[#FBF1E4] py-14 lg:py-20"
     >
       <LeafAccent corner="top-right" variant={3} />
@@ -104,8 +104,8 @@ export default async function HolidaysSection({
               )}
               {heading && (
                 <h2
-                  id="holidays-heading"
-                  className={`${manrope.className} mt-5 max-w-2xl text-4xl font-bold leading-[1.12] tracking-tight text-[#2F1200] lg:text-[3.2rem]`}
+                  id="collections-heading"
+                  className={`${playfair.className} mt-5 max-w-2xl text-4xl font-bold leading-[1.12] tracking-tight text-[#2F1200] lg:text-[3.2rem]`}
                 >
                   {lead}
                   {gold && (
@@ -132,7 +132,7 @@ export default async function HolidaysSection({
                   <CardIcon item={item} index={i} />
                   <span aria-hidden className="h-0.5 w-8 rounded-full bg-[#D68921]" />
                   <h3
-                    className={`${manrope.className} max-w-[12rem] text-balance text-base font-semibold leading-snug text-[#2F1200] lg:text-[17px]`}
+                    className={`${playfair.className} max-w-[12rem] text-balance text-base font-semibold leading-snug text-[#2F1200] lg:text-[17px]`}
                   >
                     {item.title}
                   </h3>
@@ -158,10 +158,10 @@ export default async function HolidaysSection({
             })}
           </div>
 
-          {/* CTA button: buttonLabel / holidayButtonLink from Sanity, with defaults */}
+          {/* CTA button: buttonLabel / collectionsButtonLink from Sanity, with defaults */}
           {buttonText && (
             <SmartLink
-              href={holidayButtonLink || "/explore-collections"}
+              href={collectionsButtonLink || "/explore-collections"}
               className="group/cta mt-9 inline-flex items-center gap-2.5 rounded-full bg-[#2F1200] px-7 py-3.5 text-sm font-semibold text-[#f2e9dd] transition-colors duration-300 hover:bg-[#432115] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921] lg:mt-10"
             >
               {buttonText}

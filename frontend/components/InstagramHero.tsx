@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Props = {
   eyebrow?: string | null;
@@ -58,7 +58,7 @@ export default function InstagramHero({
 
         <h1
           style={{ animationDelay: "100ms" }}
-          className={`${manrope.className} mt-8 max-w-[11em] animate-fade-up text-5xl font-bold leading-[1.08] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.5rem]`}
+          className={`${playfair.className} mt-8 max-w-[11em] animate-fade-up text-5xl font-bold leading-[1.08] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.5rem]`}
         >
           {headingWhite}
           {headingBlue && (

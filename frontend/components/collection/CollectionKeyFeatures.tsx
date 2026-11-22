@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useId, useRef, useState, type KeyboardEvent } from "react";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Item = {
   _key: string;
@@ -19,7 +19,7 @@ type Props = {
   items?: Item[] | null;
 };
 
-export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
+export default function CollectionKeyFeatures({ heading, intro, items }: Props) {
   const tabs = (items ?? []).filter(
     (i) => i?.tabLabel?.trim() || i?.title?.trim(),
   );
@@ -58,7 +58,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end">
           <h2
             id={`${uid}-heading`}
-            className={`${manrope.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+            className={`${playfair.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
           >
             {heading || "Key Features"}
           </h2>
@@ -115,7 +115,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
             )}
             {current.title && (
               <h3
-                className={`${manrope.className} mt-4 max-w-[420px] text-[1.7rem] font-bold leading-[1.15] text-[#2F1200] lg:text-[2rem]`}
+                className={`${playfair.className} mt-4 max-w-[420px] text-[1.7rem] font-bold leading-[1.15] text-[#2F1200] lg:text-[2rem]`}
               >
                 {current.title}
               </h3>

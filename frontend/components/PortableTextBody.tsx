@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 // Renders the "Body" field of a Design Guide post with the typography of the design:
 // 17px navy body text, bold Manrope headings, rounded images with a small caption.
@@ -26,28 +26,28 @@ const components: PortableTextComponents = {
     ),
     h2: ({ children }) => (
       <h2
-        className={`${manrope.className} mt-14 text-[1.7rem] font-bold leading-tight tracking-[-0.005em] text-[#2F1200] lg:text-[2rem]`}
+        className={`${playfair.className} mt-14 text-[1.7rem] font-bold leading-tight tracking-[-0.005em] text-[#2F1200] lg:text-[2rem]`}
       >
         {children}
       </h2>
     ),
     h3: ({ children }) => (
       <h3
-        className={`${manrope.className} mt-10 text-[1.35rem] font-bold leading-tight text-[#2F1200] lg:text-[1.55rem]`}
+        className={`${playfair.className} mt-10 text-[1.35rem] font-bold leading-tight text-[#2F1200] lg:text-[1.55rem]`}
       >
         {children}
       </h3>
     ),
     h4: ({ children }) => (
       <h4
-        className={`${manrope.className} mt-8 text-lg font-bold leading-tight text-[#2F1200]`}
+        className={`${playfair.className} mt-8 text-lg font-bold leading-tight text-[#2F1200]`}
       >
         {children}
       </h4>
     ),
     blockquote: ({ children }) => (
       <blockquote
-        className={`${manrope.className} mt-8 border-l-4 border-brand-gold pl-6 text-xl font-semibold leading-snug text-[#2F1200]`}
+        className={`${playfair.className} mt-8 border-l-4 border-brand-gold pl-6 text-xl font-semibold leading-snug text-[#2F1200]`}
       >
         {children}
       </blockquote>

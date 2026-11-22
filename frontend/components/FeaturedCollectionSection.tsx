@@ -1,4 +1,4 @@
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import FeaturedCollectionSlider from "./FeaturedCollectionSlider";
 import {
   ArrowIcon,
@@ -63,7 +63,7 @@ export default function FeaturedCollectionSection({
           )}
           <h2
             id="featured-heading"
-            className={`${manrope.className} mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-[#2F1200] lg:text-[3.1rem]`}
+            className={`${playfair.className} mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-[#2F1200] lg:text-[3.1rem]`}
           >
             {(() => {
               const [lead, gold] = splitHeading(

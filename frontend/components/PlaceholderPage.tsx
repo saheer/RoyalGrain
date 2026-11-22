@@ -4,7 +4,7 @@ import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import InstagramHero from "@/components/InstagramHero";
 import LeafAccent from "@/components/LeafAccent";
 import { ArrowIcon, SmartLink } from "@/components/FeaturedParts";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type RelatedLink = { title: string; href: string };
 
@@ -59,7 +59,7 @@ export default function PlaceholderPage({
                 />
                 <h2
                   id="placeholder-heading"
-                  className={`${manrope.className} text-3xl font-bold leading-[1.15] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+                  className={`${playfair.className} text-3xl font-bold leading-[1.15] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
                 >
                   {cardHeading}
                 </h2>
@@ -96,7 +96,7 @@ export default function PlaceholderPage({
               <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
                 <h2
                   id="related-heading"
-                  className={`${manrope.className} text-2xl font-bold tracking-tight text-[#2F1200] lg:text-[2rem]`}
+                  className={`${playfair.className} text-2xl font-bold tracking-tight text-[#2F1200] lg:text-[2rem]`}
                 >
                   {relatedHeading}
                 </h2>

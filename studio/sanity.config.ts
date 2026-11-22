@@ -46,7 +46,7 @@ export default defineConfig({
               .title('Explore Collections Page')
               .id('exploreHolidaysPage')
               .child(S.document().schemaType('exploreHolidaysPage').documentId('exploreHolidaysPage')),
-            S.documentTypeListItem('holiday').title('Holidays (the 4 solutions)'),
+            S.documentTypeListItem('holiday').title('Collections (the 4 solutions)'),
 
             S.listItem()
               .title('Our Expertise Page')

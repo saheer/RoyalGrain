@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import NewsletterForm from "@/components/NewsletterForm";
 
 type Props = {
@@ -79,7 +79,7 @@ export default function NewsletterSection({
       <div className="relative z-10 mx-auto flex max-w-[1338px] flex-col items-center px-6 py-16 text-center lg:px-12">
         <h2
           id="newsletter-heading"
-          className={`${manrope.className} text-4xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] lg:text-[3rem]`}
+          className={`${playfair.className} text-4xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] lg:text-[3rem]`}
         >
           {headStart}
           <span className="text-[#D68921]">{headEnd}</span>

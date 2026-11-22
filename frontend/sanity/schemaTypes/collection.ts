@@ -73,11 +73,13 @@ const titleField = defineField({
 const descField = (rows = 3) =>
   defineField({name: 'description', title: 'Description', type: 'text', rows})
 
-// One document per holiday: feeds the /explore-collections cards and the
+// One document per collection (the 4 solutions): feeds the /explore-collections cards and the
 // full /explore-collections/<slug> detail page.
+// NOTE: the stored type name stays 'holiday' (renaming it would hide the existing documents
+// in the dataset). Everything editors see in Studio says "Collection".
 export default defineType({
   name: 'holiday',
-  title: 'Holiday',
+  title: 'Collection',
   type: 'document',
   groups: [
     {name: 'card', title: '1 · Card & Menu', default: true},
@@ -153,7 +155,7 @@ export default defineType({
       title: 'Hero title (white part)',
       type: 'string',
       group: 'hero',
-      description: 'e.g. "Backwater Cruises". Leave both parts empty to show the holiday title in white.',
+      description: 'e.g. "Backwater Cruises". Leave both parts empty to show the collection title in white.',
     }),
     defineField({
       name: 'heroTitleBlue',
@@ -219,7 +221,7 @@ export default defineType({
       title: 'Heading',
       type: 'string',
       group: 'why',
-      description: 'Leave empty for "Why do you need <holiday title>?".',
+      description: 'Leave empty for "Why do you need <collection title>?".',
     }),
     defineField({name: 'whyText', title: 'Text', type: 'text', rows: 4, group: 'why'}),
     defineField({
@@ -255,7 +257,7 @@ export default defineType({
       title: 'Section heading',
       type: 'string',
       group: 'benefits',
-      description: 'Leave empty for "How does <holiday title> benefit your brand?".',
+      description: 'Leave empty for "How does <collection title> benefit your brand?".',
     }),
     objectList(
       'benefits',
@@ -316,7 +318,7 @@ export default defineType({
       title: 'Heading',
       type: 'string',
       group: 'cta',
-      initialValue: 'Plan your holiday with Royal Grain.',
+      initialValue: 'Start your project with Royal Grain.',
     }),
     defineField({
       name: 'ctaText',
@@ -325,7 +327,7 @@ export default defineType({
       rows: 2,
       group: 'cta',
       initialValue:
-        'Talk to our team to plan the right holiday for your dates, budget and interests.',
+        'Talk to our team to plan the right piece for your space, budget and style.',
     }),
     defineField({
       name: 'ctaButtonLabel',
@@ -362,7 +364,7 @@ export default defineType({
       'strength',
       [iconField, titleField, descField(2)],
       {icon: 'icon', title: 'title', subtitle: 'description'},
-      'Leave EMPTY to show the shared list from Explore Collections Page. Fill it only to show different strengths on this holiday.',
+      'Leave EMPTY to show the shared list from Explore Collections Page. Fill it only to show different strengths on this collection.',
       true, // inline-SVG preview: use the same last two arguments as your "Benefit cards" list
     ),
     // ---------- 9 · FAQ ----------

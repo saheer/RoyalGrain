@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
-import { hotspotStyle, type Hotspot } from "@/lib/holidays";
+import { playfair } from "@/app/fonts";
+import { hotspotStyle, type Hotspot } from "@/lib/collections";
 
 type Props = {
   title: string;
@@ -13,7 +13,7 @@ type Props = {
   features?: string[] | null;
 };
 
-export default function HolidayHero({
+export default function CollectionHero({
   title,
   titleWhite,
   titleBlue,
@@ -45,7 +45,7 @@ export default function HolidayHero({
 
       <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-14 pt-36 lg:px-12 lg:pb-16 lg:pt-[10rem]">
         <h1
-          className={`${manrope.className} max-w-[900px] animate-fade-up text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-5xl lg:text-[3.75rem]`}
+          className={`${playfair.className} max-w-[900px] animate-fade-up text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-5xl lg:text-[3.75rem]`}
         >
           {white && <span className="block">{white}</span>}
           {titleBlue && (

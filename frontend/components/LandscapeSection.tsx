@@ -1,4 +1,4 @@
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import LandscapeCard, { type LandscapeCardData } from "./LandscapeCard";
 import LandscapeSlider from "./LandscapeSlider";
 
@@ -35,7 +35,7 @@ export default function LandscapeSection({
               />
               <h2
                 id="landscape-heading"
-                className={`${manrope.className} max-w-xl text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-5xl`}
+                className={`${playfair.className} max-w-xl text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-5xl`}
               >
                 {heading}
               </h2>

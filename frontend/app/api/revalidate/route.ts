@@ -9,7 +9,7 @@ const TAGS = [
   'about',
   'instagramFeed',
   'ourExpertise',
-  'holidays',
+  'collections',
   'seo',
 ]
 

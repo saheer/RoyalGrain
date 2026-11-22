@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 // Small building blocks shared by FeaturedCollectionSection (server) and
 // FeaturedCollectionSlider (client). No hooks in here, so both can import it.
@@ -88,7 +88,7 @@ export function FeaturedCard({
       <div className="mt-4 flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3
-            className={`${manrope.className} text-[17px] font-semibold leading-snug text-[#2F1200]`}
+            className={`${playfair.className} text-[17px] font-semibold leading-snug text-[#2F1200]`}
           >
             {card.title}
           </h3>

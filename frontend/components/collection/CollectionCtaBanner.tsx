@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Props = {
   eyebrow?: string | null;
@@ -9,7 +9,7 @@ type Props = {
   link?: string | null;
 };
 
-export default function HolidayCtaBanner({
+export default function CollectionCtaBanner({
   eyebrow,
   heading,
   text,
@@ -43,13 +43,13 @@ export default function HolidayCtaBanner({
               </p>
             )}
             <h2
-              className={`${manrope.className} mt-4 max-w-[560px] text-3xl font-bold leading-[1.1] tracking-tight text-[#f2e9dd] lg:text-[2.5rem]`}
+              className={`${playfair.className} mt-4 max-w-[560px] text-3xl font-bold leading-[1.1] tracking-tight text-[#f2e9dd] lg:text-[2.5rem]`}
             >
-              {heading || "Plan your holiday with Royal Grain."}
+              {heading || "Start your project with Royal Grain."}
             </h2>
             <p className="mt-4 max-w-[520px] text-[13.5px] leading-[1.7] text-[#f2e9dd]/65">
               {text ||
-                "Talk to our team to plan the right holiday for your dates, budget and interests."}
+                "Talk to our team to plan the right piece for your space, budget and style."}
             </p>
           </div>
 

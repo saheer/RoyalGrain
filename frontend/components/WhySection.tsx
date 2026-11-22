@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { loadSvg } from "@/sanity/lib/inlineSvg";
 import { LINE_ICONS, LineIcon } from "./LineIcon";
 
@@ -125,7 +125,7 @@ export default function WhySection({
                 <span aria-hidden className="w-0.5 shrink-0 bg-[#D68921]/80" />
                 <div>
                   <h3
-                    className={`${manrope.className} text-2xl font-bold leading-[1.15] tracking-tight text-[#2F1200] lg:text-[1.9rem]`}
+                    className={`${playfair.className} text-2xl font-bold leading-[1.15] tracking-tight text-[#2F1200] lg:text-[1.9rem]`}
                   >
                     {feature.title}
                     {feature.highlight && (

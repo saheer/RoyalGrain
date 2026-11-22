@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { ArrowIcon, SmartLink } from "./FeaturedParts";
 
 export type LandscapeCardData = {
@@ -56,7 +56,7 @@ export default function LandscapeCard({
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-[#f2e9dd] lg:p-7">
         <div className="min-w-0">
           <h3
-            className={`${manrope.className} text-xl font-semibold leading-snug text-white lg:text-2xl`}
+            className={`${playfair.className} text-xl font-semibold leading-snug text-white lg:text-2xl`}
           >
             {card.title}
           </h3>

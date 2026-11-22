@@ -1,4 +1,4 @@
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { LINE_ICONS, LineIcon } from "./LineIcon";
 
 type Milestone = {
@@ -64,7 +64,7 @@ export default function JourneySection({ heading, items }: Props) {
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
           id="journey-heading"
-          className={`${manrope.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
+          className={`${playfair.className} text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3rem]`}
         >
           {heading || "Our Core Values"}
         </h2>
@@ -94,7 +94,7 @@ export default function JourneySection({ heading, items }: Props) {
                   </span>
                 )}
                 <h3
-                  className={`${manrope.className} ${m.year ? "mt-2" : "mt-5"} text-xl font-bold leading-tight text-[#f2e9dd]`}
+                  className={`${playfair.className} ${m.year ? "mt-2" : "mt-5"} text-xl font-bold leading-tight text-[#f2e9dd]`}
                 >
                   {m.title}
                 </h3>

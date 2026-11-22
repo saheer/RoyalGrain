@@ -1,4 +1,4 @@
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
 import LeafAccent from "@/components/LeafAccent";
@@ -44,7 +44,7 @@ export default function ContactSection({
           <span aria-hidden className="block h-px w-6 bg-[#D68921]" />
           <h2
             id="contact-heading"
-            className={`${manrope.className} mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#301200] lg:text-[3.5rem]`}
+            className={`${playfair.className} mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#301200] lg:text-[3.5rem]`}
           >
             {headStart}
             <span className="text-[#D68921]">{headEnd}</span>

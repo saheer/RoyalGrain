@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Props = {
   heading: string;
@@ -9,7 +9,7 @@ type Props = {
   imageAlt?: string | null;
 };
 
-export default function HolidayWhySection({
+export default function CollectionWhySection({
   heading,
   text,
   points,
@@ -21,14 +21,14 @@ export default function HolidayWhySection({
 
   return (
     <section
-      aria-labelledby="holiday-why-heading"
+      aria-labelledby="collection-why-heading"
       className="bg-[#FCF1E2] py-16 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1338px] items-center gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16 lg:px-12">
         <div>
           <h2
-            id="holiday-why-heading"
-            className={`${manrope.className} max-w-[520px] text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+            id="collection-why-heading"
+            className={`${playfair.className} max-w-[520px] text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
           >
             {heading}
           </h2>

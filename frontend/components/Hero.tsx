@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type HeroProps = {
   heroHeadingWhite: string;
@@ -42,7 +42,7 @@ export default function Hero({
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pb-16 pt-40 lg:px-12">
         <h1
           style={{ animationDelay: "0ms" }}
-          className={`${manrope.className} animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]`}
+          className={`${playfair.className} animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]`}
         >
           {heroHeadingWhite}
           <span className="block text-brand-gold">{heroHeadingBlue}</span>
@@ -50,7 +50,7 @@ export default function Hero({
 
         <div
           style={{ animationDelay: "200ms" }}
-          className="w-full max-w-[540px] animate-fade-up motion-reduce:animate-none mt-10 max-w-4xl space-y-4 text-base leading-relaxed lg:text-xl lg:leading-[1.5]"
+          className="w-full max-w-[640px] animate-fade-up motion-reduce:animate-none mt-10 max-w-5xl space-y-4 text-base leading-relaxed lg:text-xl lg:leading-[1.5]"
         >
           {(heroDescription ?? []).map((p, i) => (
             <p

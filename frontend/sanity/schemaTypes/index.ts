@@ -2,9 +2,9 @@ import home from "./home";
 import about from "./about";
 import contact from "./contact";
 import travelGuidePage from "./travelGuidePage";
-import exploreHolidaysPage from "./exploreHolidaysPage";
+import exploreCollectionsPage from "./exploreCollectionsPage";
 import footer from "./footer";
-import holiday from "./holiday";
+import collection from "./collection";
 import instagramFeed from "./instagramFeed";
 import ourExpertisePage from "./ourExpertisePage";
 import expertisePage from "./expertisePage";
@@ -18,9 +18,9 @@ export const schemaTypes = [
   home,
   about,
   contact,
-  exploreHolidaysPage,
+  exploreCollectionsPage,
   footer,
-  holiday,
+  collection,
   instagramFeed,
   ourExpertisePage,
   expertisePage,

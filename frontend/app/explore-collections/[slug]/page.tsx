@@ -2,48 +2,48 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
-import HolidayHero from "@/components/holiday/HolidayHero";
-import HolidayKeyFeatures from "@/components/holiday/HolidayKeyFeatures";
-import HolidayWhySection from "@/components/holiday/HolidayWhySection";
-import HolidayHighlightsGrid from "@/components/holiday/HolidayHighlightsGrid";
-import HolidayBenefits from "@/components/holiday/HolidayBenefits";
-import HolidayCoverGrid from "@/components/holiday/HolidayCoverGrid";
-import HolidayCtaBanner from "@/components/holiday/HolidayCtaBanner";
-import WhyChooseSection from "@/components/holiday/WhyChooseSection";
-import FaqAccordion from "@/components/holiday/FaqAccordion";
+import CollectionHero from "@/components/collection/CollectionHero";
+import CollectionKeyFeatures from "@/components/collection/CollectionKeyFeatures";
+import CollectionWhySection from "@/components/collection/CollectionWhySection";
+import CollectionHighlightsGrid from "@/components/collection/CollectionHighlightsGrid";
+import CollectionBenefits from "@/components/collection/CollectionBenefits";
+import CollectionCoverGrid from "@/components/collection/CollectionCoverGrid";
+import CollectionCtaBanner from "@/components/collection/CollectionCtaBanner";
+import WhyChooseSection from "@/components/collection/WhyChooseSection";
+import FaqAccordion from "@/components/collection/FaqAccordion";
 import {
-  getHoliday,
-  getHolidaySlugs,
-  getExploreHolidaysPage,
-} from "@/sanity/lib/getHolidays";
+  getCollection,
+  getCollectionSlugs,
+  getExploreCollectionsPage,
+} from "@/sanity/lib/getCollections";
 import { buildMetadata } from "@/sanity/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
-// Prerender every holiday at build time. With Cache Components this must return at
-// least one param, so a placeholder is used while the CMS has no holidays yet
-// (the page answers it with a 404). Holidays published later render on first visit.
+// Prerender every collection at build time. With Cache Components this must return at
+// least one param, so a placeholder is used while the CMS has no collections yet
+// (the page answers it with a 404). Collections published later render on first visit.
 export async function generateStaticParams() {
-  const slugs = (await getHolidaySlugs()).filter((s) => s?.slug);
-  return slugs.length > 0 ? slugs : [{ slug: "no-holidays-yet" }];
+  const slugs = (await getCollectionSlugs()).filter((s) => s?.slug);
+  return slugs.length > 0 ? slugs : [{ slug: "no-collections-yet" }];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const holiday = await getHoliday(slug);
-  if (!holiday)
+  const collection = await getCollection(slug);
+  if (!collection)
     return {
-      title: "Holiday not found | Royal Grain",
+      title: "Collection not found | Royal Grain",
       robots: { index: false },
     };
 
   return buildMetadata({
-    seo: holiday.seo,
+    seo: collection.seo,
     path: `/explore-collections/${slug}`,
     fallback: {
-      title: `${holiday.title} | Royal Grain`,
-      description: holiday.heroSubtitle || holiday.shortDescription,
-      image: holiday.image,
+      title: `${collection.title} | Royal Grain`,
+      description: collection.heroSubtitle || collection.shortDescription,
+      image: collection.image,
     },
   });
 }
@@ -51,13 +51,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // NOT async: `params` is URL data, so it is passed down as a promise and only
 // awaited inside <Suspense>. The header is static (plain links, no data),
 // so it needs no boundary.
-export default function HolidayDetailPage({ params }: Props) {
+export default function CollectionDetailPage({ params }: Props) {
   return (
     <>
       <Header />
       <main>
-        <Suspense fallback={<HolidayPageSkeleton />}>
-          <HolidayContent params={params} />
+        <Suspense fallback={<CollectionPageSkeleton />}>
+          <CollectionContent params={params} />
         </Suspense>
       </main>
     </>
@@ -65,7 +65,7 @@ export default function HolidayDetailPage({ params }: Props) {
 }
 
 // Roughly the size of the real hero, so nothing jumps when the content streams in
-function HolidayPageSkeleton() {
+function CollectionPageSkeleton() {
   return (
     <div aria-hidden className="animate-pulse motion-reduce:animate-none">
       <section className="bg-[#2F1200]">
@@ -82,15 +82,15 @@ function HolidayPageSkeleton() {
   );
 }
 
-async function HolidayContent({ params }: Props) {
+async function CollectionContent({ params }: Props) {
   const { slug } = await params;
-  const [holiday, shared] = await Promise.all([
-    getHoliday(slug),
-    getExploreHolidaysPage(), // the "Why Choose" block is shared by every holiday
+  const [collection, shared] = await Promise.all([
+    getCollection(slug),
+    getExploreCollectionsPage(), // the "Why Choose" block is shared by every collection
   ]);
-  if (!holiday) notFound();
+  if (!collection) notFound();
 
-  const faqs = (holiday.faqs ?? []).filter(
+  const faqs = (collection.faqs ?? []).filter(
     (f: { question?: string; answer?: string }) =>
       f?.question?.trim() && f?.answer?.trim(),
   );
@@ -111,67 +111,67 @@ async function HolidayContent({ params }: Props) {
 
   return (
     <>
-      <HolidayHero
-        title={holiday.title}
-        titleWhite={holiday.heroTitleWhite}
-        titleBlue={holiday.heroTitleBlue}
-        subtitle={holiday.heroSubtitle || holiday.shortDescription}
-        image={holiday.heroImage || holiday.image}
-        imageAlt={holiday.heroImage ? holiday.heroImageAlt : holiday.imageAlt}
-        hotspot={holiday.heroImage ? holiday.heroHotspot : holiday.hotspot}
-        features={holiday.features}
+      <CollectionHero
+        title={collection.title}
+        titleWhite={collection.heroTitleWhite}
+        titleBlue={collection.heroTitleBlue}
+        subtitle={collection.heroSubtitle || collection.shortDescription}
+        image={collection.heroImage || collection.image}
+        imageAlt={collection.heroImage ? collection.heroImageAlt : collection.imageAlt}
+        hotspot={collection.heroImage ? collection.heroHotspot : collection.hotspot}
+        features={collection.features}
       />
 
-      <HolidayKeyFeatures
-        heading={holiday.keyFeaturesHeading}
-        intro={holiday.keyFeaturesIntro}
-        items={holiday.keyFeatures}
+      <CollectionKeyFeatures
+        heading={collection.keyFeaturesHeading}
+        intro={collection.keyFeaturesIntro}
+        items={collection.keyFeatures}
       />
 
-      <HolidayWhySection
-        heading={holiday.whyHeading || `Why choose ${holiday.title}?`}
-        text={holiday.whyText}
-        points={holiday.whyPoints}
-        image={holiday.whyImage}
-        imageAlt={holiday.whyImageAlt}
+      <CollectionWhySection
+        heading={collection.whyHeading || `Why choose ${collection.title}?`}
+        text={collection.whyText}
+        points={collection.whyPoints}
+        image={collection.whyImage}
+        imageAlt={collection.whyImageAlt}
       />
 
-      <HolidayHighlightsGrid
-        heading={holiday.highlightsHeading}
-        items={holiday.highlightItems}
+      <CollectionHighlightsGrid
+        heading={collection.highlightsHeading}
+        items={collection.highlightItems}
       />
 
-      <HolidayBenefits
+      <CollectionBenefits
         heading={
-          holiday.benefitsHeading || `What makes ${holiday.title} special?`
+          collection.benefitsHeading || `What makes ${collection.title} special?`
         }
-        items={holiday.benefits}
+        items={collection.benefits}
       />
 
-      <HolidayCoverGrid
-        heading={holiday.coverHeading}
-        intro={holiday.coverIntro}
-        items={holiday.coverItems}
+      <CollectionCoverGrid
+        heading={collection.coverHeading}
+        intro={collection.coverIntro}
+        items={collection.coverItems}
       />
 
-      <HolidayCtaBanner
-        eyebrow={holiday.ctaEyebrow}
-        heading={holiday.ctaHeading}
-        text={holiday.ctaText}
-        buttonLabel={holiday.ctaButtonLabel}
-        link={holiday.ctaLink}
+      <CollectionCtaBanner
+        eyebrow={collection.ctaEyebrow}
+        heading={collection.ctaHeading}
+        text={collection.ctaText}
+        buttonLabel={collection.ctaButtonLabel}
+        link={collection.ctaLink}
       />
 
       <WhyChooseSection
-        heading={holiday.whyChooseHeading || shared?.whyChooseHeading}
+        heading={collection.whyChooseHeading || shared?.whyChooseHeading}
         items={
-          holiday.whyChooseItems?.length
-            ? holiday.whyChooseItems
+          collection.whyChooseItems?.length
+            ? collection.whyChooseItems
             : shared?.whyChooseItems
         }
       />
 
-      <FaqAccordion heading={holiday.faqHeading} items={faqs} />
+      <FaqAccordion heading={collection.faqHeading} items={faqs} />
 
       {faqJsonLd && (
         <script

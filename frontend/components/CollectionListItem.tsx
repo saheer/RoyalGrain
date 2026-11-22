@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
-import { hotspotStyle, type HolidayCardData } from "@/lib/holidays";
+import { playfair } from "@/app/fonts";
+import { hotspotStyle, type CollectionCardData } from "@/lib/collections";
 
 type Props = {
-  holiday: HolidayCardData;
+  collection: CollectionCardData;
   reversed?: boolean; // image on the right (every second card)
   exploreLabel?: string | null;
   priority?: boolean;
 };
 
-export default function HolidayListItem({
-  holiday,
+export default function CollectionListItem({
+  collection,
   reversed = false,
   exploreLabel,
   priority = false,
 }: Props) {
-  const features = (holiday.features ?? []).filter((f) => f?.trim());
+  const features = (collection.features ?? []).filter((f) => f?.trim());
 
   return (
     <article
@@ -31,15 +31,15 @@ export default function HolidayListItem({
           reversed ? "lg:order-2" : ""
         }`}
       >
-        {holiday.image && (
+        {collection.image && (
           <Image
-            src={holiday.image}
-            alt={holiday.imageAlt || ""}
+            src={collection.image}
+            alt={collection.imageAlt || ""}
             fill
             loading={priority ? "eager" : "lazy"}
             fetchPriority={priority ? "high" : "auto"}
             sizes="(min-width: 1024px) 42vw, 100vw"
-            style={hotspotStyle(holiday.hotspot)}
+            style={hotspotStyle(collection.hotspot)}
             className="object-cover transition-transform duration-700 group-hover/card:scale-105 motion-reduce:transition-none"
           />
         )}
@@ -47,13 +47,13 @@ export default function HolidayListItem({
 
       <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-[3.25rem]">
         <h3
-          className={`${manrope.className} text-[1.65rem] font-bold leading-tight tracking-[-0.01em] text-[#2F1200] lg:text-[2rem]`}
+          className={`${playfair.className} text-[1.65rem] font-bold leading-tight tracking-[-0.01em] text-[#2F1200] lg:text-[2rem]`}
         >
-          {holiday.title}
+          {collection.title}
         </h3>
-        {holiday.shortDescription && (
+        {collection.shortDescription && (
           <p className="mt-5 max-w-[560px] text-[15px] leading-[1.75] text-[#432115]">
-            {holiday.shortDescription}
+            {collection.shortDescription}
           </p>
         )}
 
@@ -75,17 +75,17 @@ export default function HolidayListItem({
         )}
 
         <Link
-          href={`/explore-collections/${holiday.slug}`}
+          href={`/explore-collections/${collection.slug}`}
           className="group/link mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-brand-bronze transition-colors hover:text-[#2F1200] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-bronze"
         >
-          {exploreLabel || "Explore Holiday"}
+          {exploreLabel || "Explore Collection"}
           <span
             aria-hidden
             className="transition-transform duration-300 group-hover/link:translate-x-1 motion-reduce:transition-none"
           >
             →
           </span>
-          <span className="sr-only"> – {holiday.title}</span>
+          <span className="sr-only"> – {collection.title}</span>
         </Link>
       </div>
     </article>

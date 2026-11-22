@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   // Needed so canonical and social-image URLs are absolute
   metadataBase: new URL(SITE_URL),
   title: "Royal Grain",
-  description: "Kerala holidays and tours, planned with care by Royal Grain Woodcraft & Interiors in Puthentheru.",
+  description: "Custom teakwood doors, handcrafted furniture and timeless interiors by Royal Grain Woodcraft & Interiors in Puthentheru, Kerala.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

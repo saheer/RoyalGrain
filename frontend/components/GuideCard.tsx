@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 // Shared building blocks for the Design Guide cards: used by the Home page section
 // (3 newest), and the /design-guide page (featured slot + grid).
@@ -103,7 +103,7 @@ export function GuideCard({
 
       <div className="flex flex-1 flex-col p-6 lg:p-7">
         <h3
-          className={`${manrope.className} text-[19px] font-semibold leading-snug text-[#301200]`}
+          className={`${playfair.className} text-[19px] font-semibold leading-snug text-[#301200]`}
         >
           {post.title}
         </h3>
@@ -147,7 +147,7 @@ export function GuideFeaturedCard({ post }: { post: GuidePost }) {
           Featured
         </p>
         <h2
-          className={`${manrope.className} mt-5 text-3xl font-bold leading-[1.1] tracking-[-0.01em] text-[#2F1200] lg:text-[2.6rem]`}
+          className={`${playfair.className} mt-5 text-3xl font-bold leading-[1.1] tracking-[-0.01em] text-[#2F1200] lg:text-[2.6rem]`}
         >
           {post.title}
         </h2>

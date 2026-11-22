@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { GuideCard, type GuidePost } from "@/components/GuideCard";
 import LeafAccent from "@/components/LeafAccent";
 
@@ -16,7 +16,7 @@ const DEFAULTS = {
   eyebrow: "Our Collections",
   heading: "Your Weekly Design Guide.",
   subtitle:
-    "For the latest destination guides, travel tips and holiday ideas from Royal Grain.",
+    "For the latest interior design ideas, woodcraft tips and project inspiration from Royal Grain.",
 };
 
 // "Your Weekly Design Guide." -> ["Your Weekly Design", "Guide."] (last word is set in gold)
@@ -53,7 +53,7 @@ export default function TravelGuideSection({
             </p>
             <h2
               id="design-guide-heading"
-              className={`${manrope.className} mt-4 max-w-[560px] text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#301200] lg:text-[3.3rem]`}
+              className={`${playfair.className} mt-4 max-w-[560px] text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#301200] lg:text-[3.3rem]`}
             >
               {headStart}
               <span className="text-[#D68921]">{headEnd}</span>

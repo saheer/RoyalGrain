@@ -2,7 +2,7 @@
 
 export type Hotspot = { x: number; y: number } | null | undefined;
 
-export type HolidayMenuItem = {
+export type CollectionMenuItem = {
   _id: string;
   title: string;
   slug: string;
@@ -10,7 +10,7 @@ export type HolidayMenuItem = {
   imageAlt?: string | null;
 };
 
-export type HolidayCardData = HolidayMenuItem & {
+export type CollectionCardData = CollectionMenuItem & {
   shortDescription?: string | null;
   features?: string[] | null;
   hotspot?: Hotspot;

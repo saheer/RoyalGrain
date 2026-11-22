@@ -81,7 +81,7 @@ export const homeQuery = groq`
         "iconType": iconFile.asset->mimeType
       }
     },
-    "holidays": {
+    "collections": {
       "eyebrow": holidaysEyebrow,
       "heading": holidaysHeading,
       "headingAccent": holidaysHeadingAccent,
@@ -95,7 +95,7 @@ export const homeQuery = groq`
         "iconType": iconFile.asset->mimeType
       },
       "buttonLabel": buttonLabel,
-      "holidayButtonLink": holidayButtonLink
+      "collectionsButtonLink": holidayButtonLink
     },
     "why": {
       "mediaType": whyMediaType,
@@ -313,8 +313,10 @@ export const instagramFeedQuery = groq`
   }
 `
 // ---------------------------------------------------------------------------
-// Holidays: "Explore Collections Page" singleton + one "holiday" document per solution
-export const exploreHolidaysPageQuery = groq`
+// Collections: "Explore Collections Page" singleton + one collection document per solution.
+// NOTE: the stored Sanity names are still "exploreHolidaysPage" / "holiday" (and the Home fields
+// holidays*): renaming them would hide the existing content. Only the code and the Studio labels say "collection".
+export const exploreCollectionsPageQuery = groq`
   *[_type == "exploreHolidaysPage"][0]{
     heroTitle,
     heroSubtitle,
@@ -336,7 +338,7 @@ export const exploreHolidaysPageQuery = groq`
   }
 `
 
-const HOLIDAY_CARD = `
+const COLLECTION_CARD = `
   _id,
   title,
   "slug": slug.current,
@@ -347,28 +349,18 @@ const HOLIDAY_CARD = `
   "hotspot": image.hotspot{x, y}
 `
 
-const HOLIDAY_ORDER = `order(coalesce(order, 999) asc, title asc)`
+const COLLECTION_ORDER = `order(coalesce(order, 999) asc, title asc)`
 
 // /explore-collections listing
-export const holidaysListQuery = groq`
-  *[_type == "holiday" && defined(slug.current)] | ${HOLIDAY_ORDER}{${HOLIDAY_CARD}}
+export const collectionsListQuery = groq`
+  *[_type == "holiday" && defined(slug.current)] | ${COLLECTION_ORDER}{${COLLECTION_CARD}}
 `
 
 // Header dropdown + "other solutions": only what a small card needs
-export const holidaysMenuQuery = groq`
-  *[_type == "holiday" && defined(slug.current)] | ${HOLIDAY_ORDER}{
-    _id,
-    title,
-    "slug": slug.current,
-    "image": image.asset->url,
-    "imageAlt": image.alt
-  }
-`
-
 // /explore-collections/[slug]
-export const holidayBySlugQuery = groq`
+export const collectionBySlugQuery = groq`
   *[_type == "holiday" && slug.current == $slug][0]{
-    ${HOLIDAY_CARD},
+    ${COLLECTION_CARD},
     ${seoFragment},
 
     heroTitleWhite,
@@ -411,8 +403,8 @@ export const holidayBySlugQuery = groq`
 `
 
 // For generateStaticParams
-export const holidaySlugsQuery = groq`
-  *[_type == "holiday" && defined(slug.current)] | ${HOLIDAY_ORDER}{"slug": slug.current}
+export const collectionSlugsQuery = groq`
+  *[_type == "holiday" && defined(slug.current)] | ${COLLECTION_ORDER}{"slug": slug.current}
 `
 // Slugs for generateStaticParams on /design-guide/[slug]
 export const guideSlugsQuery = groq`

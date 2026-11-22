@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Faq = { _key: string; question: string; answer: string };
 
@@ -27,7 +27,7 @@ export default function FaqAccordion({
         <div className="mx-auto max-w-[920px]">
           <h2
             id={`${uid}-heading`}
-            className={`${manrope.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+            className={`${playfair.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
           >
             {heading || "Frequently Asked Questions"}
           </h2>

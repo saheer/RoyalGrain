@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { formatGuideDate, hotspotPosition } from "@/components/GuideCard";
 import PortableTextBody from "@/components/PortableTextBody";
 import { getGuidePost, getGuideSlugs } from "@/sanity/lib/getTravelGuide";
@@ -89,7 +89,7 @@ export default async function GuidePostPage({ params }: Props) {
             </nav>
 
             <h1
-              className={`${manrope.className} mt-8 max-w-[900px] text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#f2e9dd] sm:text-5xl lg:text-[4rem]`}
+              className={`${playfair.className} mt-8 max-w-[900px] text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#f2e9dd] sm:text-5xl lg:text-[4rem]`}
             >
               {post.title}
             </h1>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 
 type Item = {
   _key: string;
@@ -9,7 +9,7 @@ type Item = {
   imageAlt?: string | null;
 };
 
-export default function HolidayHighlightsGrid({
+export default function CollectionHighlightsGrid({
   heading,
   items,
 }: {
@@ -21,13 +21,13 @@ export default function HolidayHighlightsGrid({
 
   return (
     <section
-      aria-labelledby="holiday-highlights-heading"
+      aria-labelledby="collection-highlights-heading"
       className="bg-[#FEF8F0] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
-          id="holiday-highlights-heading"
-          className={`${manrope.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
+          id="collection-highlights-heading"
+          className={`${playfair.className} text-3xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[2.5rem]`}
         >
           {heading || "Highlights"}
         </h2>
@@ -51,7 +51,7 @@ export default function HolidayHighlightsGrid({
               </div>
               <div className="p-5">
                 <h3
-                  className={`${manrope.className} text-[15px] font-bold text-[#2F1200]`}
+                  className={`${playfair.className} text-[15px] font-bold text-[#2F1200]`}
                 >
                   {c.title}
                 </h3>

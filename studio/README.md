@@ -21,8 +21,6 @@ npx sanity exec scripts/migrate-rebrand.js --with-user-token            # dry ru
 npx sanity exec scripts/migrate-rebrand.js --with-user-token -- --commit # apply
 ```
 
-For a brand-new dataset, `seed/holidays.ndjson` contains placeholder Royal Grain Woodcraft & Interiors content:
-`npx sanity dataset import seed/holidays.ndjson production`.
 After the migration, rebuild/redeploy the Studio (`npm run build`, `npm run deploy`).
 
 ## Design Guide categories

@@ -6,7 +6,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import FeaturedCollectionSection from "@/components/FeaturedCollectionSection";
 import LandscapeSection from "@/components/LandscapeSection";
 import ApproachSection from "@/components/ApproachSection";
-import HolidaySection from "@/components/HolidaySection";
+import CollectionsSection from "@/components/CollectionsSection";
 import WhySection from "@/components/WhySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TravelGuideSection from "@/components/TravelGuideSection";
@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     fallback: {
       title: "Royal Grain Woodcraft & Interiors",
       description:
-        "Kerala holidays and tours, planned with care by Royal Grain Woodcraft & Interiors in Puthentheru.",
+        "Custom teakwood doors, handcrafted furniture and timeless interiors by Royal Grain Woodcraft & Interiors in Puthentheru, Kerala.",
     },
   });
 }
@@ -55,7 +55,7 @@ export default async function HomePage() {
     featured,
     landscape,
     approach,
-    holidays,
+    collections,
     why,
     testimonials,
     ...hero
@@ -79,7 +79,7 @@ export default async function HomePage() {
           <ApproachSection {...approach} />
         </FadeInWhenVisible>
         <FadeInWhenVisible>
-          <HolidaySection {...holidays} />
+          <CollectionsSection {...collections} />
         </FadeInWhenVisible>
         <FadeInWhenVisible>
           <WhySection {...why} />

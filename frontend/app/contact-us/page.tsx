@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
-import { manrope } from "@/app/fonts";
+import { playfair } from "@/app/fonts";
 import { getContact } from "@/sanity/lib/getContact";
 import {
   DEFAULT_CONTACT_DESCRIPTION,
@@ -61,7 +61,7 @@ export default async function ContactUsPage() {
 
           <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-20 pt-36 lg:px-12 lg:pb-[7.2rem] lg:pt-[7.625rem]">
             <h1
-              className={`${manrope.className} text-5xl font-bold leading-[1.05] tracking-[-0.008em] text-[#f2e9dd] lg:text-[4rem]`}
+              className={`${playfair.className} text-5xl font-bold leading-[1.05] tracking-[-0.008em] text-[#f2e9dd] lg:text-[4rem]`}
             >
               {data.heading || DEFAULT_CONTACT_HEADING}
             </h1>

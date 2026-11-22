@@ -4,7 +4,7 @@ import Image from "next/image";
 //   1. inline SVG markup (from the inline-SVG field)  -> <img> with a data URI
 //   2. an image/file URL from Sanity                  -> next/image (SVGs are served as-is)
 //   3. nothing / anything else                        -> the neutral check-mark icon
-export default function HolidayIcon({
+export default function CollectionIcon({
   src,
   className = "h-12 w-12",
 }: {
