@@ -1,3 +1,4 @@
+import LeafAccent from "@/components/LeafAccent";
 import type { ReactNode } from "react";
 import { manrope } from "@/app/fonts";
 
@@ -122,8 +123,9 @@ export default function OurExpertiseSection({
     <section
       id="expertise"
       aria-labelledby="expertise-heading"
-      className="scroll-mt-24 bg-[#FCF1E2] py-16 lg:py-24"
+      className="relative isolate scroll-mt-24 bg-[#FCF1E2] py-16 lg:py-24"
     >
+      <LeafAccent corner="top-right" variant={3} />
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         {/* Heading left, subtitle right (stacked on mobile) */}
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1.48fr)_minmax(0,1fr)] lg:items-end">

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { manrope } from "@/app/fonts";
+import LeafAccent from "@/components/LeafAccent";
 
 type Card = {
   _key?: string | null;
@@ -106,8 +107,9 @@ export default function AboutCraftSection({ heading, subtitle, cards }: Props) {
   return (
     <section
       aria-labelledby="craft-heading"
-      className="pb-16 pt-16 lg:pb-24 lg:pt-24"
+      className="relative isolate pb-16 pt-16 lg:pb-24 lg:pt-24"
     >
+      <LeafAccent corner="top-right" variant={3} />
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         {/* Heading row: heading left, subtitle right (stacked on mobile) */}
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1.48fr)_minmax(0,1fr)] lg:items-end">

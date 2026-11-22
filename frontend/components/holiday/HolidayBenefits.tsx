@@ -21,7 +21,7 @@ export default function HolidayBenefits({
   return (
     <section
       aria-labelledby="holiday-benefits-heading"
-      className="bg-[linear-gradient(180deg,#061A4D_0%,#030F33_100%)] py-16 lg:py-24"
+      className="bg-[linear-gradient(180deg,#2F1200_0%,#1D0B00_100%)] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
@@ -44,7 +44,7 @@ export default function HolidayBenefits({
                 {c.title}
               </h3>
               {c.description && (
-                <p className="mt-3 text-[13px] leading-[1.65] text-[#8FA0C4]">
+                <p className="mt-3 text-[13px] leading-[1.65] text-[#f2e9dd]/70">
                   {c.description}
                 </p>
               )}

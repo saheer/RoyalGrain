@@ -38,9 +38,16 @@ export default function InstagramHero({
           className="-z-10 object-cover"
         />
       )}
-      {/* deep navy tint so the white text always stays readable */}
+      {/* deep wood-brown tint so the light text always stays readable */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/85 to-[#2F1200]/60" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-[#2F1200]/70 to-transparent" />
+      {/* no photo set: a soft warm glow keeps the banner from looking flat */}
+      {!image && (
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-[radial-gradient(70%_90%_at_85%_20%,rgba(214,137,33,0.22)_0%,transparent_65%)]"
+        />
+      )}
 
       <div className="mx-auto w-full max-w-[1338px] px-6 pb-20 pt-40 lg:px-12">
         {eyebrow && (

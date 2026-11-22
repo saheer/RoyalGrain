@@ -2,6 +2,18 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 // Icons an editor can pick for the "Our Craft" cards. The values are the keys of ICONS in
 // frontend/components/AboutCraftSection.tsx: add the drawing there first, then the option here.
+// Icons for the "Our Core Values" strip (keys of LINE_ICONS in frontend/components/LineIcon.tsx)
+const VALUE_ICONS = [
+  {title: 'Leaf / natural wood', value: 'leaf'},
+  {title: 'Star', value: 'star'},
+  {title: 'Shield / trust', value: 'shield'},
+  {title: 'Diamond / quality', value: 'diamond'},
+  {title: 'Award / medal', value: 'award'},
+  {title: 'Ruler / precision', value: 'ruler'},
+  {title: 'Heart / care', value: 'heart'},
+  {title: 'Home', value: 'home'},
+]
+
 const CRAFT_ICONS = [
   {title: 'People', value: 'users'},
   {title: 'Award / medal', value: 'award'},
@@ -22,7 +34,7 @@ export default defineType({
     {name: 'hero', title: 'Hero', default: true},
     {name: 'stats', title: 'Key Statistics'},
     {name: 'people', title: 'Our People'},
-    {name: 'journey', title: 'Our Journey'},
+    {name: 'journey', title: 'Our Core Values'},
     {name: 'craft', title: 'Our Craft'},
     {name: 'testimonials', title: 'Client Speak'},
     {name: 'seo', title: 'SEO'},
@@ -145,8 +157,22 @@ export default defineType({
       type: 'image',
       group: 'people',
       options: {hotspot: true},
-      description: 'Shown on the right, in a 16:9 rounded frame.',
+      description: 'Shown on the right, in a rounded frame (about 16:10).',
       fields: [defineField({name: 'alt', title: 'Alt text', type: 'string'})],
+    }),
+    defineField({
+      name: 'peopleButtonText',
+      title: 'Button text',
+      type: 'string',
+      group: 'people',
+      description: 'Empty = "Know More".',
+    }),
+    defineField({
+      name: 'peopleButtonLink',
+      title: 'Button link',
+      type: 'string',
+      group: 'people',
+      description: 'A page of this site, e.g. /our-expertise (empty = /our-expertise), or a full https:// address.',
     }),
 
     // ---------- Our Journey ----------
@@ -159,16 +185,24 @@ export default defineType({
     }),
     defineField({
       name: 'journey',
-      title: 'Timeline items',
+      title: 'Values',
       type: 'array',
       group: 'journey',
-      description: 'Shown left to right (4 fit in one row). Drag to reorder.',
+      description:
+        'The dark strip of values (4 fit in one row): icon, title and a short line. The year is optional and can stay empty. Drag to reorder.',
       of: [
         defineArrayMember({
           name: 'milestone',
           type: 'object',
           fields: [
-            defineField({name: 'year', title: 'Year', type: 'string', validation: (r) => r.required()}),
+            defineField({
+              name: 'icon',
+              title: 'Icon',
+              type: 'string',
+              options: {list: VALUE_ICONS, layout: 'dropdown'},
+              description: 'Left empty, the card uses a default for its position (leaf, star, shield, diamond).',
+            }),
+            defineField({name: 'year', title: 'Year (optional)', type: 'string'}),
             defineField({name: 'title', title: 'Title', type: 'string', validation: (r) => r.required()}),
             defineField({name: 'description', title: 'Description', type: 'text', rows: 3}),
           ],

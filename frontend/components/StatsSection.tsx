@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import LeafAccent from "@/components/LeafAccent";
 
 type Stat = {
   _key: string;
@@ -112,13 +113,14 @@ export default function StatsSection({ items, note }: Props) {
     <section
       ref={sectionRef}
       aria-label="Key statistics"
-      className="bg-[#FEF8F0] py-14 lg:py-20"
+      className="relative isolate bg-[#FEF8F0] py-14 lg:py-20"
     >
+      <LeafAccent corner="top-right" />
       <div className="mx-auto max-w-[1280px] px-6 lg:px-12">
-        <div className="overflow-hidden rounded-3xl border border-gray-200">
+        <div className="overflow-hidden rounded-3xl border border-[#EBD3AE] bg-[#FEF8F0]">
           <div
             style={{ "--cols": stats.length } as CSSProperties}
-            className="grid grid-cols-1 divide-y divide-gray-200 md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))] md:divide-x md:divide-y-0"
+            className="grid grid-cols-1 divide-y divide-[#EBD3AE] md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))] md:divide-x md:divide-y-0"
           >
             {stats.map((stat) => {
               const text = stat.value as string;
@@ -154,7 +156,7 @@ export default function StatsSection({ items, note }: Props) {
           </div>
 
           {note && (
-            <p className="border-t border-gray-200 bg-[#F9F9FB] px-9 py-5 text-sm text-slate-400">
+            <p className="border-t border-[#EBD3AE] bg-[#FBF1E4] px-9 py-5 text-sm text-[#432115]/75">
               {note}
             </p>
           )}

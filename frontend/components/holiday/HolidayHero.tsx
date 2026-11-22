@@ -41,7 +41,7 @@ export default function HolidayHero({
           className="object-cover"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#041640]/95 via-[#2F1200]/85 to-[#2F1200]/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1D0B00]/95 via-[#2F1200]/85 to-[#2F1200]/70" />
 
       <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-14 pt-36 lg:px-12 lg:pb-16 lg:pt-[10rem]">
         <h1

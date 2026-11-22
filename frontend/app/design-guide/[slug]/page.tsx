@@ -110,14 +110,14 @@ export default async function GuidePostPage({ params }: Props) {
         </section>
 
         {/* Article body */}
-        <article className="bg-white pb-20 pt-14 lg:pb-28 lg:pt-16">
+        <article className="bg-[#FEF8F0] pb-20 pt-14 lg:pb-28 lg:pt-16">
           <div className="mx-auto max-w-[840px] px-6">
             <PortableTextBody value={post.body} />
 
-            <div className="mt-16 border-t border-[#EDF1F7] pt-8">
+            <div className="mt-16 border-t border-[#EBD3AE] pt-8">
               <Link
                 href="/design-guide"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#244598] transition-colors hover:text-[#16306E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244598]"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F1200] transition-colors hover:text-[#432115] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]"
               >
                 <span aria-hidden>←</span>
                 Back to Design Guide

@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
       // Old "Digital Digest" section, now "Design Guide"
       {source: '/digital-digest', destination: '/design-guide', permanent: true},
       {source: '/digital-digest/:slug', destination: '/design-guide/:slug', permanent: true},
+      // Common alternative addresses of the footer's legal pages
+      {source: '/privacy', destination: '/privacy-policy', permanent: true},
+      {source: '/terms', destination: '/terms-and-conditions', permanent: true},
+      {source: '/terms-conditions', destination: '/terms-and-conditions', permanent: true},
     ]
   },
   turbopack: {

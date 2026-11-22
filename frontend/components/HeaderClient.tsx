@@ -157,8 +157,8 @@ function HeaderBar({ variant, open, onToggle, onNavigate }: BarProps) {
           aria-label="Mobile"
           className={`mx-6 mb-4 flex flex-col gap-4 rounded-xl p-6 text-lg lg:hidden ${
             sticky
-              ? "border border-slate-200 bg-white text-[#2F1200] shadow-lg"
-              : "bg-slate-950/95 text-[#f2e9dd]"
+              ? "border border-[#EBD3AE] bg-[#FEF8F0] text-[#2F1200] shadow-lg"
+              : "bg-[#2F1200]/95 text-[#f2e9dd]"
           }`}
         >
           {NAV.map((item) => (
@@ -234,7 +234,7 @@ export default function HeaderClient() {
           "fixed inset-x-0 top-0 z-50  bg-[#2F1200] text-[#f2e9dd]",
           "transition-[transform,opacity,visibility,box-shadow] duration-300 ease-out will-change-transform motion-reduce:transition-none",
           stuck
-            ? "visible translate-y-0  opacity-100 shadow-[0_4px_20px_rgba(10,26,58,0.08)]"
+            ? "visible translate-y-0  opacity-100 shadow-[0_4px_20px_rgba(47,18,0,0.08)]"
             : "invisible -translate-y-full border-transparent opacity-0 shadow-none",
         ].join(" ")}
       >

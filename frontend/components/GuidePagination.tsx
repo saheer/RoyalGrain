@@ -24,7 +24,7 @@ function pageItems(page: number, total: number): (number | "gap")[] {
 }
 
 const BASE =
-  "inline-flex h-10 min-w-10 items-center justify-center rounded-full px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#244598]";
+  "inline-flex h-10 min-w-10 items-center justify-center rounded-full px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D68921]";
 
 export default function GuidePagination({ page, totalPages }: Props) {
   if (totalPages <= 1) return null;
@@ -38,14 +38,14 @@ export default function GuidePagination({ page, totalPages }: Props) {
         <Link
           href={href(page - 1)}
           rel="prev"
-          className={`${BASE} border border-[#DCE3EF] text-[#244598] hover:bg-[#fceeea]`}
+          className={`${BASE} border border-[#EBD3AE] text-[#2F1200] hover:bg-[#FCF1E2]`}
         >
           ← Previous
         </Link>
       ) : (
         <span
           aria-hidden
-          className={`${BASE} border border-[#EDF1F7] text-[#B5C0D6]`}
+          className={`${BASE} border border-[#EBD3AE] text-[#432115]/40`}
         >
           ← Previous
         </span>
@@ -54,7 +54,7 @@ export default function GuidePagination({ page, totalPages }: Props) {
       <ul className="flex items-center gap-2">
         {pageItems(page, totalPages).map((item, i) =>
           item === "gap" ? (
-            <li key={`gap-${i}`} aria-hidden className="px-1 text-[#7C8BA8]">
+            <li key={`gap-${i}`} aria-hidden className="px-1 text-[#432115]/60">
               …
             </li>
           ) : (
@@ -65,8 +65,8 @@ export default function GuidePagination({ page, totalPages }: Props) {
                 aria-current={item === page ? "page" : undefined}
                 className={`${BASE} ${
                   item === page
-                    ? "bg-[#244598] text-[#f2e9dd]"
-                    : "text-[#244598] hover:bg-[#fceeea]"
+                    ? "bg-[#2F1200] text-[#f2e9dd]"
+                    : "text-[#2F1200] hover:bg-[#FCF1E2]"
                 }`}
               >
                 {item}
@@ -80,14 +80,14 @@ export default function GuidePagination({ page, totalPages }: Props) {
         <Link
           href={href(page + 1)}
           rel="next"
-          className={`${BASE} border border-[#DCE3EF] text-[#244598] hover:bg-[#fceeea]`}
+          className={`${BASE} border border-[#EBD3AE] text-[#2F1200] hover:bg-[#FCF1E2]`}
         >
           Next →
         </Link>
       ) : (
         <span
           aria-hidden
-          className={`${BASE} border border-[#EDF1F7] text-[#B5C0D6]`}
+          className={`${BASE} border border-[#EBD3AE] text-[#432115]/40`}
         >
           Next →
         </span>

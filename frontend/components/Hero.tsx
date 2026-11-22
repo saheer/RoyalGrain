@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { manrope } from "@/app/fonts";
 
 type HeroProps = {
   heroHeadingWhite: string;
@@ -24,7 +25,7 @@ export default function Hero({
   const buttonLabel = heroButtonText?.replace(/\s*[→➔➜]+\s*$/u, "").trim();
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#2F1200]">
       {heroBackground && (
         <Image
           src={heroBackground}
@@ -35,14 +36,13 @@ export default function Hero({
           className="object-cover"
         />
       )}
-      {/* darkening overlay for text legibility */}
-      /*
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/70 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-950/70 to-transparent" />
+      {/* deep wood-brown tint (same as the About Us banner) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/65 to-[#2F1200]/20" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2F1200]/70 to-transparent" />
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pb-16 pt-40 lg:px-12">
         <h1
           style={{ animationDelay: "0ms" }}
-          className="animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]"
+          className={`${manrope.className} animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]`}
         >
           {heroHeadingWhite}
           <span className="block text-brand-gold">{heroHeadingBlue}</span>

@@ -39,12 +39,12 @@ export default function HolidayWhySection({
           )}
           {list.length > 0 && (
             <>
-              <hr className="my-8 max-w-[520px] border-[#DDE6F2]" />
+              <hr className="my-8 max-w-[520px] border-[#EBD3AE]" />
               <ul className="space-y-3.5">
                 {list.map((p) => (
                   <li
                     key={p}
-                    className="flex items-center gap-3 text-[14px] font-medium text-[#0C2268]"
+                    className="flex items-center gap-3 text-[14px] font-medium text-[#2F1200]"
                   >
                     <span
                       aria-hidden

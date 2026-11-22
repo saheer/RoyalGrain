@@ -21,7 +21,7 @@ export default function FaqAccordion({
   return (
     <section
       aria-labelledby={`${uid}-heading`}
-      className="bg-white py-16 lg:py-24"
+      className="bg-[#FEF8F0] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <div className="mx-auto max-w-[920px]">
@@ -40,7 +40,7 @@ export default function FaqAccordion({
               return (
                 <div
                   key={f._key}
-                  className="border-t border-[#E3E9F3] last:border-b"
+                  className="border-t border-[#EBD3AE] last:border-b"
                 >
                   <h3>
                     <button
@@ -51,15 +51,15 @@ export default function FaqAccordion({
                       onClick={() => setOpenIndex(open ? null : i)}
                       className="flex w-full items-center justify-between gap-6 py-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-brand-bronze"
                     >
-                      <span className="text-[14.5px] font-bold leading-snug text-[#0C2268]">
+                      <span className="text-[14.5px] font-bold leading-snug text-[#2F1200]">
                         {f.question}
                       </span>
                       <span
                         aria-hidden
-                        className={`relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[#0C2268] transition-colors duration-300 ${
+                        className={`relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[#2F1200] transition-colors duration-300 ${
                           open
                             ? "border-brand-bronze bg-brand-bronze/10"
-                            : "border-[#D5DFEE]"
+                            : "border-[#EBD3AE]"
                         }`}
                       >
                         <span className="absolute h-px w-3 bg-current" />

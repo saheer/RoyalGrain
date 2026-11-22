@@ -1,3 +1,4 @@
+import LeafAccent from "@/components/LeafAccent";
 import Image from "next/image";
 import { manrope } from "@/app/fonts";
 import type { InstagramTile } from "@/lib/instagram";
@@ -80,8 +81,9 @@ export default function InstagramGrid({
   return (
     <section
       aria-labelledby="instagram-feed-heading"
-      className="bg-white py-16 lg:py-24"
+      className="relative isolate bg-[#FEF8F0] py-16 lg:py-24"
     >
+      <LeafAccent corner="top-right" />
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         {/* Section header */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">

@@ -22,7 +22,7 @@ export default function LogoMarquee({ logos }: { logos?: Logo[] | null }) {
   return (
     <section
       aria-label="Our partners and clients"
-      className="overflow-hidden border-b border-gray-200 bg-white py-6 lg:py-8"
+      className="overflow-hidden border-b border-[#EBD3AE] bg-[#FBF1E4] py-6 lg:py-8"
     >
       <div
         className="marquee-track flex w-max"

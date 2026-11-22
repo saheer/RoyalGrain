@@ -31,7 +31,7 @@ export default function WhyChooseSection({
   return (
     <section
       aria-labelledby="why-choose-heading"
-      className="bg-[linear-gradient(135deg,#02123A_0%,#2F1200_55%,#041433_100%)] py-16 lg:py-24"
+      className="bg-[linear-gradient(135deg,#2F1200_0%,#432115_55%,#1D0B00_100%)] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
@@ -53,7 +53,7 @@ export default function WhyChooseSection({
                   {c.title}
                 </h3>
                 {c.description && (
-                  <p className="mx-auto mt-2 max-w-[280px] text-[13px] leading-[1.6] text-[#8FA0C4]">
+                  <p className="mx-auto mt-2 max-w-[280px] text-[13px] leading-[1.6] text-[#f2e9dd]/70">
                     {c.description}
                   </p>
                 )}

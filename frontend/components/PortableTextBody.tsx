@@ -79,7 +79,7 @@ const components: PortableTextComponents = {
           {...(external
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
-          className="font-medium text-brand-bronze underline underline-offset-4 transition-colors hover:text-[#0E2F6E]"
+          className="font-medium text-brand-bronze underline underline-offset-4 transition-colors hover:text-[#2F1200]"
         >
           {children}
         </a>
@@ -100,7 +100,7 @@ const components: PortableTextComponents = {
             className="h-auto w-full rounded-2xl"
           />
           {value.caption && (
-            <figcaption className="mt-3 text-[13px] leading-snug text-[#7C8BA8]">
+            <figcaption className="mt-3 text-[13px] leading-snug text-[#432115]/70">
               {value.caption}
             </figcaption>
           )}

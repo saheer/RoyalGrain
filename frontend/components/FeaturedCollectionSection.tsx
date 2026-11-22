@@ -6,6 +6,7 @@ import {
   SmartLink,
   type FeaturedCardData,
 } from "./FeaturedParts";
+import LeafAccent from "@/components/LeafAccent";
 
 type Props = {
   eyebrow?: string | null;
@@ -19,7 +20,10 @@ type Props = {
 
 // Splits the heading into a brown part and a gold part. The gold part is the optional
 // "Heading (gold part)" field; without it the last two words are gold.
-function splitHeading(heading: string, accent?: string | null): [string, string] {
+function splitHeading(
+  heading: string,
+  accent?: string | null,
+): [string, string] {
   if (accent?.trim()) return [heading.trim(), accent.trim()];
   const words = heading.trim().split(/\s+/);
   if (words.length < 3) return [heading.trim(), ""];
@@ -46,8 +50,9 @@ export default function FeaturedCollectionSection({
   return (
     <section
       aria-labelledby="featured-heading"
-      className="bg-[#FEF8F0] py-16 lg:py-24"
+      className="relative isolate bg-[#FEF8F0] py-16 lg:py-24"
     >
+      <LeafAccent corner="top-right" />
       <div className="mx-auto grid max-w-[1338px] items-center gap-12 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)] lg:gap-14 lg:px-12">
         {/* Text side */}
         <div>
@@ -68,7 +73,12 @@ export default function FeaturedCollectionSection({
               return (
                 <>
                   {lead}
-                  {gold && <> <span className="text-[#D68921]">{gold}</span></>}
+                  {gold && (
+                    <>
+                      {" "}
+                      <span className="text-[#D68921]">{gold}</span>
+                    </>
+                  )}
                 </>
               );
             })()}

@@ -266,9 +266,11 @@ export const aboutQuery = groq`
     peopleDescription,
     "peopleImage": peopleImage.asset->url,
     "peopleImageAlt": peopleImage.alt,
+    peopleButtonText,
+    peopleButtonLink,
 
     journeyHeading,
-    journey[]{_key, year, title, description},
+    journey[]{_key, icon, year, title, description},
 
     craftHeading,
     craftSubtitle,

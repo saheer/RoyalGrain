@@ -77,7 +77,7 @@ function HolidayPageSkeleton() {
           <div className="mt-12 h-24 border-t border-white/15" />
         </div>
       </section>
-      <div className="h-[480px] bg-white" />
+      <div className="h-[480px] bg-[#FEF8F0]" />
     </div>
   );
 }

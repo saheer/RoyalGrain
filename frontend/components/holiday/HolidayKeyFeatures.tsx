@@ -52,7 +52,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
   return (
     <section
       aria-labelledby={`${uid}-heading`}
-      className="bg-white py-16 lg:py-24"
+      className="bg-[#FEF8F0] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end">
@@ -72,7 +72,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
         <div
           role="tablist"
           aria-label={heading || "Key Features"}
-          className="mt-10 flex border-b border-[#DDE6F2]"
+          className="mt-10 flex border-b border-[#EBD3AE]"
         >
           {tabs.map((t, i) => (
             <button
@@ -90,8 +90,8 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
               onKeyDown={(e) => onKeyDown(e, i)}
               className={`-mb-px flex-1 border-b-2 px-3 py-4 text-center text-[13px] font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-brand-bronze ${
                 i === index
-                  ? "border-brand-bronze text-[#0C2268]"
-                  : "border-transparent text-[#7C8BA8] hover:text-[#0C2268]"
+                  ? "border-brand-bronze text-[#2F1200]"
+                  : "border-transparent text-[#432115]/65 hover:text-[#2F1200]"
               }`}
             >
               {t.tabLabel || t.title}
@@ -105,7 +105,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
           role="tabpanel"
           id={`${uid}-panel`}
           aria-labelledby={`${uid}-tab-${index}`}
-          className="mt-6 grid animate-fade-up overflow-hidden rounded-2xl bg-[#F4F6FB] motion-reduce:animate-none lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
+          className="mt-6 grid animate-fade-up overflow-hidden rounded-2xl bg-[#FBF1E4] motion-reduce:animate-none lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
         >
           <div className="flex flex-col justify-center p-8 lg:p-12">
             {current.tabLabel && (
@@ -115,7 +115,7 @@ export default function HolidayKeyFeatures({ heading, intro, items }: Props) {
             )}
             {current.title && (
               <h3
-                className={`${manrope.className} mt-4 max-w-[420px] text-[1.7rem] font-bold leading-[1.15] text-[#0C2268] lg:text-[2rem]`}
+                className={`${manrope.className} mt-4 max-w-[420px] text-[1.7rem] font-bold leading-[1.15] text-[#2F1200] lg:text-[2rem]`}
               >
                 {current.title}
               </h3>

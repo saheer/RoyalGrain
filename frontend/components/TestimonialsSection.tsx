@@ -9,6 +9,7 @@ import {
 } from "react";
 import { manrope } from "@/app/fonts";
 import { splitHeading } from "@/lib/splitHeading";
+import LeafAccent from "@/components/LeafAccent";
 
 type Testimonial = {
   _key: string;
@@ -125,12 +126,13 @@ export default function TestimonialsSection({
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className={`${manrope.className} bg-white ${
+      className={`${manrope.className} relative isolate ${
         layout === "stacked"
           ? "pb-16 pt-12 lg:pb-24"
-          : "bg-white py-16 lg:py-24"
+          : "py-16 lg:py-24"
       }`}
     >
+      <LeafAccent corner="bottom-left" />
       <div className="mx-auto max-w-[1350px] px-6 lg:px-12">
         <div
           className={`grid items-center gap-10 ${
@@ -147,7 +149,11 @@ export default function TestimonialsSection({
               className="text-4xl font-bold leading-[1.1] tracking-tight text-[#2F1200] lg:text-[3.5rem]"
             >
               {(() => {
-                const [lead, gold] = splitHeading(heading || "Client Speak", null, 1);
+                const [lead, gold] = splitHeading(
+                  heading || "Client Speak",
+                  null,
+                  1,
+                );
                 return (
                   <>
                     {lead}
@@ -162,7 +168,8 @@ export default function TestimonialsSection({
               })()}
             </h2>
             <p className="mt-4 max-w-sm text-base leading-relaxed text-[#432115]">
-              {subtitle || "What our homeowners say about our teakwood craftsmanship and interior works."}
+              {subtitle ||
+                "What our homeowners say about our teakwood craftsmanship and interior works."}
             </p>
           </div>
 
@@ -220,7 +227,10 @@ export default function TestimonialsSection({
 
                 {/* Footer: gold line, location tag (left), arrows (right) */}
                 <div className="mt-9 flex items-center justify-between gap-4 border-t border-[#D68921]/60 pt-6">
-                  <div aria-label={`Testimonial ${active + 1} of ${count}`} className="min-w-0">
+                  <div
+                    aria-label={`Testimonial ${active + 1} of ${count}`}
+                    className="min-w-0"
+                  >
                     {slides[active].author && (
                       <p className="mb-1 text-[15px] font-semibold text-[#f2e9dd]">
                         {slides[active].author}

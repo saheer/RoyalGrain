@@ -7,7 +7,7 @@ import TurnstileWidget from "@/components/TurnstileWidget";
 
 const labelCls = "mb-2 block text-[13px] font-semibold text-[#2F1200]";
 const inputCls =
-  "w-full rounded-lg border border-[#2F1200]/15 bg-[#FCF1E2] px-4 text-[15px] text-[#2F1200] placeholder:text-[#432115]/50 transition-colors focus:border-[#D68921] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D68921]/30 aria-[invalid=true]:border-red-400";
+  "w-full rounded-lg border border-[#2F1200]/15 bg-[#FCF1E2] px-4 text-[15px] text-[#2F1200] placeholder:text-[#432115]/50 transition-colors focus:border-[#D68921] focus:bg-[#FFFBF5] focus:outline-none focus:ring-2 focus:ring-[#D68921]/30 aria-[invalid=true]:border-red-400";
 
 function Field({
   uid,
@@ -69,7 +69,7 @@ export default function ContactForm() {
   return (
     <form
       action={formAction}
-      className="rounded-[26px] border border-[#2F1200]/10 bg-white p-6 sm:p-8 lg:p-10"
+      className="rounded-[26px] border border-[#EBD3AE] bg-[#FFFBF5] p-6 sm:p-8 lg:p-10"
     >
       <div className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
         <Field

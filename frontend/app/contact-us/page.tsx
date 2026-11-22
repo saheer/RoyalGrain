@@ -1,3 +1,4 @@
+import LeafAccent from "@/components/LeafAccent";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -74,8 +75,9 @@ export default async function ContactUsPage() {
         <FadeInWhenVisible>
           <section
             aria-label="Send an enquiry"
-            className="bg-white py-16 lg:py-28"
+            className="relative isolate bg-[#FBF1E4] py-16 lg:py-28"
           >
+            <LeafAccent corner="top-right" />
             <div className="mx-auto grid max-w-[1338px] items-start gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)] lg:gap-14 lg:px-12">
               <div className="lg:pt-12">
                 <ContactInfo

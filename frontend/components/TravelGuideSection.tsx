@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { manrope } from "@/app/fonts";
 import { GuideCard, type GuidePost } from "@/components/GuideCard";
+import LeafAccent from "@/components/LeafAccent";
 
 type Props = {
   // Already the 3 newest posts (see guideHomeQuery in queries.ts), so the cards
@@ -39,8 +40,9 @@ export default function TravelGuideSection({
   return (
     <section
       aria-labelledby="design-guide-heading"
-      className="bg-[#FFFBF5] py-16 lg:py-24"
+      className="relative isolate bg-[#FEF8F0] py-16 lg:py-24"
     >
+      <LeafAccent corner="top-right" />
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         {/* Header: tag + title + subtitle, "View all" button on the right */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">

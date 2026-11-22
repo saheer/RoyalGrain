@@ -33,9 +33,9 @@ export default function HolidayCtaBanner({
   );
 
   return (
-    <section className="bg-white py-12 lg:py-16">
+    <section className="bg-[#FEF8F0] py-12 lg:py-16">
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
-        <div className="flex flex-col gap-8 rounded-2xl bg-[radial-gradient(120%_160%_at_85%_50%,#0B2A73_0%,#05174A_45%,#030F33_100%)] p-8 shadow-[0_30px_60px_-30px_rgba(10,26,58,0.6)] sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:p-14">
+        <div className="flex flex-col gap-8 rounded-2xl bg-[radial-gradient(120%_160%_at_85%_50%,#432115_0%,#2F1200_45%,#1D0B00_100%)] p-8 shadow-[0_30px_60px_-30px_rgba(47,18,0,0.6)] sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:p-14">
           <div>
             {(eyebrow || "Let’s talk") && (
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-gold">

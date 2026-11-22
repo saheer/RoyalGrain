@@ -3,6 +3,7 @@ import { loadSvg } from "@/sanity/lib/inlineSvg";
 import { splitHeading } from "@/lib/splitHeading";
 import { ArrowIcon, SmartLink } from "./FeaturedParts";
 import { LINE_ICONS, LineIcon } from "./LineIcon";
+import LeafAccent from "@/components/LeafAccent";
 
 type Holiday = {
   _key: string;
@@ -61,7 +62,7 @@ async function CardIcon({ item, index }: { item: Holiday; index: number }) {
 const cardClass =
   "group flex min-h-[200px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#D68921]/25 bg-white/60 px-6 py-9 text-center shadow-[0_14px_30px_-24px_rgba(47,18,0,0.35)] transition duration-300 lg:min-h-[220px]";
 const cardHover =
-  "hover:-translate-y-1 hover:border-[#D68921]/70 hover:bg-white hover:shadow-[0_22px_40px_-24px_rgba(47,18,0,0.4)] motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]";
+  "hover:-translate-y-1 hover:border-[#D68921]/70 hover:bg-[#FFFBF5] hover:shadow-[0_22px_40px_-24px_rgba(47,18,0,0.4)] motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D68921]";
 
 // Managed in Sanity: Home Page > "Explore Collections"
 export default async function HolidaysSection({
@@ -87,8 +88,9 @@ export default async function HolidaysSection({
   return (
     <section
       aria-labelledby="holidays-heading"
-      className="bg-white py-14 lg:py-20"
+      className="relative isolate bg-[#FBF1E4] py-14 lg:py-20"
     >
+      <LeafAccent corner="top-right" variant={3} />
       <div className="mx-auto max-w-[1280px] px-6 lg:px-12">
         <div className="relative overflow-hidden rounded-3xl border border-[#D68921]/40 bg-gradient-to-b from-[#FEF8F0] to-[#FBF1E2] px-6 py-12 shadow-[0_30px_70px_-45px_rgba(47,18,0,0.35)] lg:px-12 lg:py-16">
           {/* Heading row */}

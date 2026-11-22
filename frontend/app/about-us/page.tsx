@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
     fallback: {
       title: "About Us | Royal Grain",
       description:
-        "Royal Grain Woodcraft & Interiors is a Kerala-based travel company in Puthentheru, planning memorable holidays with local expertise and personal service.",
+        "Royal Grain Woodcraft & Interiors in Puthentheru, Kerala: solid teakwood furniture, doors, unjals and custom interiors, crafted with traditional skill and care.",
     },
   });
 }
@@ -62,6 +62,8 @@ export default async function AboutUsPage() {
             paragraphs={about.peopleDescription}
             image={about.peopleImage}
             imageAlt={about.peopleImageAlt}
+            buttonText={about.peopleButtonText}
+            buttonLink={about.peopleButtonLink}
           />
         </FadeInWhenVisible>
         <FadeInWhenVisible>
@@ -82,7 +84,6 @@ export default async function AboutUsPage() {
           </FadeInWhenVisible>
           <FadeInWhenVisible>
             <TestimonialsSection
-              layout="stacked"
               heading={about.testimonialsHeading}
               subtitle={about.testimonialsSubtitle}
               items={about.testimonials}

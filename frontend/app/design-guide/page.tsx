@@ -1,3 +1,4 @@
+import LeafAccent from "@/components/LeafAccent";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -53,7 +54,8 @@ export default function TravelGuidePage({
 
         {/* Posts: depends on ?page=, so it streams in behind a skeleton */}
         <FadeInWhenVisible>
-          <section id="design-guide-posts" className="scroll-mt-24 bg-white py-16 lg:py-20">
+          <section id="design-guide-posts" className="relative isolate scroll-mt-24 bg-[#FBF1E4] py-16 lg:py-20">
+            <LeafAccent corner="top-right" />
             <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
               <Suspense fallback={<ListSkeleton />}>
                 <GuideList searchParams={searchParams} />
@@ -127,10 +129,10 @@ async function GuideList({ searchParams }: { searchParams: SearchParams }) {
 function ListSkeleton() {
   return (
     <div aria-hidden className="animate-pulse space-y-8">
-      <div className="h-[428px] rounded-3xl bg-[#EEF1F6]" />
+      <div className="h-[428px] rounded-3xl bg-[#F3E3CC]" />
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {[0, 1, 2].map((i) => (
-          <div key={i} className="h-[380px] rounded-2xl bg-[#EEF1F6]" />
+          <div key={i} className="h-[380px] rounded-2xl bg-[#F3E3CC]" />
         ))}
       </div>
     </div>

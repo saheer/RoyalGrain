@@ -1,6 +1,7 @@
 import { manrope } from "@/app/fonts";
 import ContactForm from "@/components/ContactForm";
 import ContactInfo from "@/components/ContactInfo";
+import LeafAccent from "@/components/LeafAccent";
 
 type Props = {
   // heading / description belong to the Contact PAGE banner ("Get in Touch"), so this
@@ -34,8 +35,9 @@ export default function ContactSection({
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-[#FFFBF5] py-16 lg:py-24"
+      className="relative isolate bg-[#FBF1E4] py-16 lg:py-24"
     >
+      <LeafAccent corner="bottom-left" />
       <div className="mx-auto grid max-w-[1338px] items-start gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)] lg:gap-14 lg:px-12">
         {/* Left: heading, description, then address / phone / WhatsApp / emails */}
         <div className="lg:max-w-[485px]">

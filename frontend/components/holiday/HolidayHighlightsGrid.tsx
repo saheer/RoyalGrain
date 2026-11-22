@@ -22,7 +22,7 @@ export default function HolidayHighlightsGrid({
   return (
     <section
       aria-labelledby="holiday-highlights-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-[#FEF8F0] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
         <h2
@@ -36,7 +36,7 @@ export default function HolidayHighlightsGrid({
           {cards.map((c) => (
             <li
               key={c._key}
-              className="group overflow-hidden rounded-xl border border-[#E3E9F3] bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-24px_rgba(10,26,58,0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className="group overflow-hidden rounded-xl border border-[#EBD3AE] bg-[#FFFBF5] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-24px_rgba(47,18,0,0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-[#2F1200]">
                 {c.image && (
@@ -51,7 +51,7 @@ export default function HolidayHighlightsGrid({
               </div>
               <div className="p-5">
                 <h3
-                  className={`${manrope.className} text-[15px] font-bold text-[#0C2268]`}
+                  className={`${manrope.className} text-[15px] font-bold text-[#2F1200]`}
                 >
                   {c.title}
                 </h3>

@@ -22,7 +22,7 @@ export default function LandscapeSection({
   return (
     <section
       aria-labelledby="landscape-heading"
-      className="bg-white pb-20 pt-6 lg:pb-28 lg:pt-10"
+      className="bg-[#FEF8F0] pb-20 pt-6 lg:pb-28 lg:pt-10"
     >
       <div className="mx-auto max-w-[1280px] px-6 lg:px-12">
         {/* Heading row: heading (with a short gold line) left, subtitle (gold bar) right */}

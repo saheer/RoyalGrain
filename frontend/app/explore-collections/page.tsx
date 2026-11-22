@@ -1,3 +1,4 @@
+import LeafAccent from "@/components/LeafAccent";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -72,7 +73,8 @@ export default async function ExploreHolidaysPage() {
 
         {/* Intro + the four holidays */}
         <FadeInWhenVisible>
-          <section className="bg-white py-16 lg:py-24">
+          <section className="relative isolate bg-[#FBF1E4] py-16 lg:py-24">
+            <LeafAccent corner="top-right" />
             <div className="mx-auto max-w-[1338px] px-6 lg:px-12">
               <div className="grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-end">
                 <h2

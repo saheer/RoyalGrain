@@ -20,7 +20,7 @@ export default function HolidayListItem({
 
   return (
     <article
-      className={`group/card grid overflow-hidden rounded-2xl border border-[#DDE6F2] bg-white transition-shadow duration-300 hover:shadow-[0_24px_60px_-30px_rgba(10,26,58,0.35)] ${
+      className={`group/card grid overflow-hidden rounded-2xl border border-[#EBD3AE] bg-[#FFFBF5] transition-shadow duration-300 hover:shadow-[0_24px_60px_-30px_rgba(47,18,0,0.35)] ${
         reversed
           ? "lg:grid-cols-[minmax(0,1.38fr)_minmax(0,1fr)]"
           : "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.38fr)]"
@@ -47,7 +47,7 @@ export default function HolidayListItem({
 
       <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-[3.25rem]">
         <h3
-          className={`${manrope.className} text-[1.65rem] font-bold leading-tight tracking-[-0.01em] text-[#0C2268] lg:text-[2rem]`}
+          className={`${manrope.className} text-[1.65rem] font-bold leading-tight tracking-[-0.01em] text-[#2F1200] lg:text-[2rem]`}
         >
           {holiday.title}
         </h3>
@@ -62,7 +62,7 @@ export default function HolidayListItem({
             {features.map((f) => (
               <li
                 key={f}
-                className="flex items-center gap-2 text-[13.5px] font-medium text-[#0C2268]"
+                className="flex items-center gap-2 text-[13.5px] font-medium text-[#2F1200]"
               >
                 <span
                   aria-hidden
@@ -76,7 +76,7 @@ export default function HolidayListItem({
 
         <Link
           href={`/explore-collections/${holiday.slug}`}
-          className="group/link mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-brand-bronze transition-colors hover:text-[#0E2F6E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-bronze"
+          className="group/link mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-brand-bronze transition-colors hover:text-[#2F1200] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-bronze"
         >
           {exploreLabel || "Explore Holiday"}
           <span

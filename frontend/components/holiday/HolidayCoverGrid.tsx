@@ -44,15 +44,15 @@ export default function HolidayCoverGrid({
           {cards.map((c) => (
             <li
               key={c._key}
-              className="flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-xl border border-[#E3E9F3] bg-white p-6 text-center transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-24px_rgba(10,26,58,0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className="flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-xl border border-[#EBD3AE] bg-[#FFFBF5] p-6 text-center transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-24px_rgba(47,18,0,0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <HolidayIcon src={c.icon} className="h-10 w-10" />
               <div>
-                <h3 className="text-[13px] font-semibold leading-snug text-[#0C2268]">
+                <h3 className="text-[13px] font-semibold leading-snug text-[#2F1200]">
                   {c.title}
                 </h3>
                 {c.description && (
-                  <p className="mt-1.5 text-[12px] leading-[1.55] text-[#5B6F94]">
+                  <p className="mt-1.5 text-[12px] leading-[1.55] text-[#432115]/80">
                     {c.description}
                   </p>
                 )}

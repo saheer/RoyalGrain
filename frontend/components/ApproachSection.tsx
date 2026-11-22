@@ -155,12 +155,12 @@ export default async function ApproachSection({
                   {step.title}
                 </h3>
                 {step.subtitle && (
-                  <p className="mt-2 text-base leading-snug text-[#818896] lg:text-lg">
+                  <p className="mt-2 text-base leading-snug text-[#f2e9dd]/70 lg:text-lg">
                     {step.subtitle}
                   </p>
                 )}
                 {step.highlight && (
-                  <p className="mt-4 max-w-[16rem] text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-[#4EABE9]">
+                  <p className="mt-4 max-w-[16rem] text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-brand-gold">
                     {step.highlight}
                   </p>
                 )}
