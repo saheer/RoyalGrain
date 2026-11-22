@@ -50,7 +50,7 @@ export default function Hero({
 
         <div
           style={{ animationDelay: "200ms" }}
-          className="w-full max-w-[640px] animate-fade-up motion-reduce:animate-none mt-10 max-w-5xl space-y-4 text-base leading-relaxed lg:text-xl lg:leading-[1.5]"
+          className="w-full max-w-[540px] animate-fade-up motion-reduce:animate-none mt-10 max-w-4xl space-y-4 text-base leading-relaxed lg:text-xl lg:leading-[1.5]"
         >
           {(heroDescription ?? []).map((p, i) => (
             <p
