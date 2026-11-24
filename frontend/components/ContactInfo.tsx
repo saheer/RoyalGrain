@@ -161,7 +161,7 @@ export default function ContactInfo({
       <Row icon="mail" label="Email Us">
         <ul className="space-y-3">
           {emails.map((item) => (
-            <li key={item.email}>
+            <li key={`${item.caption}-${item.email}`}>
               <a href={`mailto:${item.email}`} className={linkCls}>
                 {item.email}
               </a>

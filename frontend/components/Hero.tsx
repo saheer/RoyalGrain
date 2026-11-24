@@ -45,7 +45,7 @@ export default function Hero({
           className={`${playfair.className} animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]`}
         >
           {heroHeadingWhite}
-          <span className="block text-brand-gold">{heroHeadingBlue}</span>
+          <span className="ml-3 text-brand-gold">{heroHeadingBlue}</span>
         </h1>
 
         <div

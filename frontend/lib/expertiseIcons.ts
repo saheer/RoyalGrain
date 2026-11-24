@@ -5,7 +5,7 @@
 
 export const EXPERTISE_ICON_KEYS = [
   "table", "chair", "sofa", "bed", "shelf", "wardrobe", "kitchen", "lamp",
-  "door", "panel", "beams", "niche", "ruler", "compass", "palette", "sparkle",
+  "door", "swing", "panel", "beams", "niche", "ruler", "compass", "palette", "sparkle",
   "office", "reception", "shop", "building", "home", "leaf", "award", "star", "check",
 ] as const;
 
@@ -26,6 +26,7 @@ const GUESSES: [RegExp, ExpertiseIconKey][] = [
   [/dining|table|bench|sideboard/i, "table"],
   [/desk|bookshel|study/i, "shelf"],
   [/pooja|foyer|utility/i, "lamp"],
+  [/unjal|swing|oonjal/i, "swing"],
   [/door|frame/i, "door"],
   [/panel|slat|wainscot/i, "panel"],
   [/ceiling|beam|architrave/i, "beams"],

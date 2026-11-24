@@ -1,5 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {createElement} from 'react'
+import {ICONS} from './expertisePage'
 import {InlineSvgPreviewItem} from '@focus-reactive/sanity-plugin-inline-svg-input'
 const altField = defineField({name: 'alt', title: 'Alt text', type: 'string'})
 
@@ -111,6 +112,14 @@ export default defineType({
       description: 'The page will live at /explore-collections/<slug>.',
       options: {source: 'title', maxLength: 96},
       validation: (r) => r.required(),
+    }),
+    defineField({
+      name: 'cardIcon',
+      title: 'Card icon',
+      type: 'string',
+      group: 'card',
+      description: 'Round gold-bordered icon on the /explore-collections card. Leave empty to pick one automatically from the title.',
+      options: {list: ICONS},
     }),
     defineField({
       name: 'order',

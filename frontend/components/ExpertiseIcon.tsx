@@ -13,6 +13,7 @@ const ICONS: Record<string, ReactNode> = {
   kitchen: (<><rect x="3" y="3" width="18" height="18" rx="1.5" /><path d="M3 12h18M12 3v18M9 8v1M15 8v1M9 15v1M15 15v1" /></>),
   lamp: (<><path d="M12 3c2 3 3 4.5 3 6.5a3 3 0 0 1-6 0C9 7.5 10 6 12 3z" /><path d="M5 14h14l-1.5 5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5z" /></>),
   door: (<><rect x="5" y="2.5" width="14" height="19" rx="1.5" /><path d="M9 7h6M9 17h6" /><circle cx="15.5" cy="12" r="0.9" /></>),
+  swing: (<><path d="M5 3v18M19 3v18M5 4h14" /><path d="M7 14h10v2.5H7z" /><path d="M8 4.5V14M16 4.5V14" /></>),
   panel: (<><rect x="3" y="4" width="18" height="16" rx="1.5" /><path d="M8 4v16M12 4v16M16 4v16" /></>),
   beams: (<><rect x="3" y="5" width="18" height="4" rx="1" /><path d="M7 9v10M17 9v10M5 19h4M15 19h4" /></>),
   niche: (<><rect x="4" y="3" width="16" height="18" rx="1.5" /><path d="M8 17v-6a4 4 0 0 1 8 0v6z" /></>),

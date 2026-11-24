@@ -2,7 +2,7 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 // Icons an editor can pick. The values are the keys in frontend/components/ExpertiseIcon.tsx
 // (list in frontend/lib/expertiseIcons.ts): draw a new icon there first, then add it here.
-const ICONS = [
+export const ICONS = [
   {title: 'Table', value: 'table'},
   {title: 'Armchair', value: 'chair'},
   {title: 'Sofa / living', value: 'sofa'},
@@ -12,6 +12,7 @@ const ICONS = [
   {title: 'Kitchen cabinets', value: 'kitchen'},
   {title: 'Pooja lamp', value: 'lamp'},
   {title: 'Door', value: 'door'},
+  {title: 'Wooden swing (unjal)', value: 'swing'},
   {title: 'Wall panelling', value: 'panel'},
   {title: 'Ceiling beams', value: 'beams'},
   {title: 'Niche / partition', value: 'niche'},

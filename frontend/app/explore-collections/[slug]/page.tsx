@@ -17,6 +17,7 @@ import {
   getExploreCollectionsPage,
 } from "@/sanity/lib/getCollections";
 import { buildMetadata } from "@/sanity/lib/seo";
+import { FALLBACK_COLLECTIONS, fallbackCollection } from "@/lib/collections";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,12 +26,12 @@ type Props = { params: Promise<{ slug: string }> };
 // (the page answers it with a 404). Collections published later render on first visit.
 export async function generateStaticParams() {
   const slugs = (await getCollectionSlugs()).filter((s) => s?.slug);
-  return slugs.length > 0 ? slugs : [{ slug: "no-collections-yet" }];
+  return slugs.length > 0 ? slugs : FALLBACK_COLLECTIONS.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const collection = await getCollection(slug);
+  const collection = (await getCollection(slug)) ?? fallbackCollection(slug);
   if (!collection)
     return {
       title: "Collection not found | Royal Grain",
@@ -38,11 +39,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 
   return buildMetadata({
-    seo: collection.seo,
+    seo: "seo" in collection ? collection.seo : undefined,
     path: `/explore-collections/${slug}`,
     fallback: {
       title: `${collection.title} | Royal Grain`,
-      description: collection.heroSubtitle || collection.shortDescription,
+      description: ("heroSubtitle" in collection && collection.heroSubtitle) || collection.shortDescription,
       image: collection.image,
     },
   });
@@ -84,10 +85,13 @@ function CollectionPageSkeleton() {
 
 async function CollectionContent({ params }: Props) {
   const { slug } = await params;
-  const [collection, shared] = await Promise.all([
+  const [cms, shared] = await Promise.all([
     getCollection(slug),
     getExploreCollectionsPage(), // the "Why Choose" block is shared by every collection
   ]);
+  // Built-in cards (shown before anything is published in Sanity) must not lead to a 404
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const collection: any = cms ?? fallbackCollection(slug);
   if (!collection) notFound();
 
   const faqs = (collection.faqs ?? []).filter(
