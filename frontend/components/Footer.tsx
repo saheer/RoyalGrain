@@ -25,6 +25,11 @@ const DEFAULTS = {
       label: "Instagram",
       url: "https://www.instagram.com/royalgrainwoodcraft",
     },
+    {
+      platform: "youtube",
+      label: "YouTube",
+      url: "https://www.youtube.com/@royalgrainwoodcraft",
+    },
   ] as SocialItem[],
   quickLinksTitle: "Quick Links",
   quickLinks: [
