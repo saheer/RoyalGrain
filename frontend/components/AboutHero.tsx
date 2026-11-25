@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { playfair } from "@/app/fonts";
-import BannerEdge from "@/components/BannerEdge";
+import BannerEdge, { BANNER_MIN_H } from "@/components/BannerEdge";
 
 type Props = {
   headingWhite?: string | null;
@@ -13,7 +13,6 @@ type Props = {
   imageAlt?: string | null;
   hotspot?: { x: number; y: number } | null;
   edgeColor?: string; // background of the section below the banner
-  scrollTo?: string; // anchor of the scroll cue (default: the About Us people section)
 };
 
 export default function AboutHero({
@@ -26,7 +25,6 @@ export default function AboutHero({
   imageAlt,
   hotspot,
   edgeColor = "#FEF8F0",
-  scrollTo = "#our-people",
 }: Props) {
   // Strip any trailing arrow typed in the CMS so only one "→" ever shows
   const label = buttonText?.replace(/\s*[→➔➜]+\s*$/u, "").trim();
@@ -35,7 +33,7 @@ export default function AboutHero({
     : undefined;
 
   return (
-    <section className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-[#2F1200] lg:min-h-[700px]">
+    <section className={`relative isolate flex ${BANNER_MIN_H} items-center overflow-hidden bg-[#2F1200]`}>
       {image && (
         <Image
           src={image}
@@ -81,14 +79,6 @@ export default function AboutHero({
         )}
       </div>
 
-      {/* scroll cue */}
-      <a
-        href={scrollTo}
-        aria-label="Scroll to content"
-        className="absolute bottom-14 left-1/2 lg:bottom-16 hidden h-7 w-4 -translate-x-1/2 justify-center rounded-full border border-white/50 pt-1.5 sm:flex"
-      >
-        <span className="h-1 w-1 rounded-full bg-white motion-safe:animate-pulse" />
-      </a>
       <BannerEdge color={edgeColor} />
     </section>
   );

@@ -117,7 +117,7 @@ export default defineType({
           _type: 'social',
           platform: 'instagram',
           label: 'Instagram',
-          url: 'https://www.instagram.com/royalgrain/',
+          url: 'https://www.instagram.com/royalgrainwoodcraft',
         },
       ],
     }),

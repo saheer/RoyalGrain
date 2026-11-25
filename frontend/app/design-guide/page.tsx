@@ -84,7 +84,6 @@ async function GuideHero() {
       imageAlt={hero?.heroBackgroundAlt}
       hotspot={hero?.heroHotspot}
       edgeColor="#FBF1E4"
-      scrollTo="#design-guide-posts"
     />
   );
 }

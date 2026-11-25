@@ -23,7 +23,7 @@ const DEFAULTS = {
     {
       platform: "instagram",
       label: "Instagram",
-      url: "https://www.instagram.com/royalgrain/",
+      url: "https://www.instagram.com/royalgrainwoodcraft",
     },
   ] as SocialItem[],
   quickLinksTitle: "Quick Links",

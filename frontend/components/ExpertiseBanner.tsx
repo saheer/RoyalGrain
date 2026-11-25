@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
-import BannerEdge from "@/components/BannerEdge";
+import BannerEdge, { BANNER_MIN_H } from "@/components/BannerEdge";
 import { ArrowIcon, SmartLink } from "@/components/FeaturedParts";
 import { titleParts } from "@/lib/expertisePages";
 
@@ -38,7 +38,7 @@ export default function ExpertiseBanner({
     : undefined;
 
   return (
-    <section className="relative isolate flex min-h-[500px] items-center overflow-hidden bg-[#280F01] lg:min-h-[600px]">
+    <section className={`relative isolate flex ${BANNER_MIN_H} items-center overflow-hidden bg-[#280F01]`}>
       {image && (
         <Image
           src={image}

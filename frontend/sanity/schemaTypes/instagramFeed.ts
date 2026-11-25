@@ -74,7 +74,7 @@ export default defineType({
       type: 'url',
       group: 'profile',
       description: 'The "Follow us" button links here, e.g. https://www.instagram.com/yourhandle/',
-      initialValue: 'https://www.instagram.com/royalgrain/',
+      initialValue: 'https://www.instagram.com/royalgrainwoodcraft',
       validation: (r) => r.uri({scheme: ['https']}),
     }),
     defineField({

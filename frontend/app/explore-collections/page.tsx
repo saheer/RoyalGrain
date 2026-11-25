@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
-import BannerEdge from "@/components/BannerEdge";
+import BannerEdge, { BANNER_MIN_H } from "@/components/BannerEdge";
 import LeafAccent from "@/components/LeafAccent";
 import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import CollectionCard from "@/components/CollectionCard";
@@ -79,7 +79,7 @@ export default async function ExploreCollectionsPage() {
       <Header />
       <main className="overflow-x-clip">
         {/* Hero */}
-        <section className="relative isolate overflow-hidden bg-[#280F01]">
+        <section className={`relative isolate flex ${BANNER_MIN_H} items-center overflow-hidden bg-[#280F01]`}>
           {page.heroBackground && (
             <Image
               src={page.heroBackground}
@@ -94,7 +94,7 @@ export default async function ExploreCollectionsPage() {
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-[#280F01]/95 via-[#280F01]/80 to-[#280F01]/45" />
 
-          <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-24 pt-40 lg:px-12 lg:pb-32 lg:pt-[11rem]">
+          <div className="relative z-10 mx-auto w-full max-w-[1338px] px-6 pb-24 pt-40 lg:px-12 lg:pb-32 lg:pt-[11rem]">
             <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
             <h1
               className={`${playfair.className} max-w-[820px] animate-fade-up text-[2.6rem] font-bold leading-[1.08] tracking-[-0.015em] text-[#F4ECDD] motion-reduce:animate-none sm:text-6xl lg:text-[4.5rem]`}

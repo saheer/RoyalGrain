@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
-import BannerEdge from "@/components/BannerEdge";
+import BannerEdge, { BANNER_MIN_H } from "@/components/BannerEdge";
 
 type Props = {
   eyebrow?: string | null;
@@ -28,7 +28,7 @@ export default function InstagramHero({
     : undefined;
 
   return (
-    <section className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-[#2F1200] lg:min-h-[640px]">
+    <section className={`relative isolate flex ${BANNER_MIN_H} items-center overflow-hidden bg-[#2F1200]`}>
       {image && (
         <Image
           src={image}
