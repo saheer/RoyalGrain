@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+import BannerEdge from "@/components/BannerEdge";
 import LeafAccent from "@/components/LeafAccent";
 import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import CollectionCard from "@/components/CollectionCard";
@@ -120,15 +121,7 @@ export default async function ExploreCollectionsPage() {
             </div>
           </div>
 
-          {/* soft curved edge into the cream section */}
-          <svg
-            aria-hidden
-            viewBox="0 0 1440 60"
-            preserveAspectRatio="none"
-            className="absolute inset-x-0 bottom-0 z-10 h-8 w-full text-[#FBF1E4] lg:h-14"
-          >
-            <path fill="currentColor" d="M0 60V32C240 4 480 0 720 18s480 30 720 4v38z" />
-          </svg>
+          <BannerEdge color="#FBF1E4" />
         </section>
 
         {/* Our Masterpiece Collections */}

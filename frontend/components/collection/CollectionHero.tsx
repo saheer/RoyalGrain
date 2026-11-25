@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
+import BannerEdge from "@/components/BannerEdge";
 import { hotspotStyle, type Hotspot } from "@/lib/collections";
 
 type Props = {
@@ -43,7 +44,8 @@ export default function CollectionHero({
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-[#1D0B00]/95 via-[#2F1200]/85 to-[#2F1200]/70" />
 
-      <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-14 pt-36 lg:px-12 lg:pb-16 lg:pt-[10rem]">
+      <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-16 pt-36 lg:px-12 lg:pb-20 lg:pt-[10rem]">
+        <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
         <h1
           className={`${playfair.className} max-w-[900px] animate-fade-up text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-5xl lg:text-[3.75rem]`}
         >
@@ -79,6 +81,7 @@ export default function CollectionHero({
           </ul>
         )}
       </div>
+      <BannerEdge color="#FEF8F0" />
     </section>
   );
 }

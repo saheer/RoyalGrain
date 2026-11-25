@@ -45,6 +45,7 @@ export default async function OurExpertisePage() {
           image={page?.heroBackground}
           imageAlt={page?.heroBackgroundAlt}
           hotspot={page?.heroHotspot}
+          edgeColor="#FCF1E2"
         />
         <FadeInWhenVisible>
           <OurExpertiseSection

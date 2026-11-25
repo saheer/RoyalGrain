@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
+import BannerEdge from "@/components/BannerEdge";
 
 type Props = {
   eyebrow?: string | null;
@@ -9,6 +10,7 @@ type Props = {
   image?: string | null;
   imageAlt?: string | null;
   hotspot?: { x: number; y: number } | null;
+  edgeColor?: string;
 };
 
 export default function InstagramHero({
@@ -19,6 +21,7 @@ export default function InstagramHero({
   image,
   imageAlt,
   hotspot,
+  edgeColor = "#FEF8F0",
 }: Props) {
   const objectPosition = hotspot
     ? `${hotspot.x * 100}% ${hotspot.y * 100}%`
@@ -50,6 +53,7 @@ export default function InstagramHero({
       )}
 
       <div className="mx-auto w-full max-w-[1338px] px-6 pb-20 pt-40 lg:px-12">
+        <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
         {eyebrow && (
           <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold motion-reduce:animate-none">
             {eyebrow}
@@ -75,6 +79,7 @@ export default function InstagramHero({
           </p>
         )}
       </div>
+      <BannerEdge color={edgeColor} />
     </section>
   );
 }

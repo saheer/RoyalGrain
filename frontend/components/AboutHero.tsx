@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { playfair } from "@/app/fonts";
+import BannerEdge from "@/components/BannerEdge";
 
 type Props = {
   headingWhite?: string | null;
@@ -11,6 +12,7 @@ type Props = {
   image?: string | null;
   imageAlt?: string | null;
   hotspot?: { x: number; y: number } | null;
+  edgeColor?: string; // background of the section below the banner
   scrollTo?: string; // anchor of the scroll cue (default: the About Us people section)
 };
 
@@ -23,6 +25,7 @@ export default function AboutHero({
   image,
   imageAlt,
   hotspot,
+  edgeColor = "#FEF8F0",
   scrollTo = "#our-people",
 }: Props) {
   // Strip any trailing arrow typed in the CMS so only one "→" ever shows
@@ -49,6 +52,7 @@ export default function AboutHero({
       <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/65 to-[#2F1200]/20" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1338px] px-6 pb-24 pt-40 lg:px-12">
+        <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
         <h1
           className={`${playfair.className} animate-fade-up text-5xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.25rem]`}
         >
@@ -81,10 +85,11 @@ export default function AboutHero({
       <a
         href={scrollTo}
         aria-label="Scroll to content"
-        className="absolute bottom-8 left-1/2 hidden h-7 w-4 -translate-x-1/2 justify-center rounded-full border border-white/50 pt-1.5 sm:flex"
+        className="absolute bottom-14 left-1/2 lg:bottom-16 hidden h-7 w-4 -translate-x-1/2 justify-center rounded-full border border-white/50 pt-1.5 sm:flex"
       >
         <span className="h-1 w-1 rounded-full bg-white motion-safe:animate-pulse" />
       </a>
+      <BannerEdge color={edgeColor} />
     </section>
   );
 }

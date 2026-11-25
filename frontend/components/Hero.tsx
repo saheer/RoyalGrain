@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { playfair } from "@/app/fonts";
+import BannerEdge from "@/components/BannerEdge";
 
 type HeroProps = {
   heroHeadingWhite: string;
@@ -10,6 +11,7 @@ type HeroProps = {
   heroButtonLink?: string | null;
   heroBackground?: string | null;
   heroBackgroundAlt?: string | null;
+  edgeColor?: string;
 };
 
 export default function Hero({
@@ -20,6 +22,7 @@ export default function Hero({
   heroButtonLink,
   heroBackground,
   heroBackgroundAlt,
+  edgeColor = "#FEF8F0",
 }: HeroProps) {
   // Strip any trailing arrow typed in the CMS so only one "→" ever shows
   const buttonLabel = heroButtonText?.replace(/\s*[→➔➜]+\s*$/u, "").trim();
@@ -40,12 +43,13 @@ export default function Hero({
       <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/65 to-[#2F1200]/20" />
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2F1200]/70 to-transparent" />
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pb-16 pt-40 lg:px-12">
+        <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
         <h1
           style={{ animationDelay: "0ms" }}
           className={`${playfair.className} animate-fade-up motion-reduce:animate-none max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#f2e9dd] sm:text-6xl lg:text-[4.6rem]`}
         >
           {heroHeadingWhite}
-          <span className="ml-3 text-brand-gold">{heroHeadingBlue}</span>
+          <span className="block text-brand-gold">{heroHeadingBlue}</span>
         </h1>
 
         <div
@@ -72,6 +76,7 @@ export default function Hero({
           </Link>
         )}
       </div>
+      <BannerEdge color={edgeColor} />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
+import BannerEdge from "@/components/BannerEdge";
 import { ArrowIcon, SmartLink } from "@/components/FeaturedParts";
 import { titleParts } from "@/lib/expertisePages";
 
@@ -13,6 +14,7 @@ type Props = {
   image?: string | null;
   imageAlt?: string | null;
   hotspot?: { x: number; y: number } | null;
+  edgeColor?: string;
 };
 
 // Banner of the /our-expertise/<slug> pages: photo on the right, text on the left over a dark
@@ -28,6 +30,7 @@ export default function ExpertiseBanner({
   image,
   imageAlt,
   hotspot,
+  edgeColor = "#FEF8F0",
 }: Props) {
   const parts = titleParts(title, titleAccent);
   const objectPosition = hotspot
@@ -102,6 +105,7 @@ export default function ExpertiseBanner({
           </SmartLink>
         </div>
       </div>
+      <BannerEdge color={edgeColor} />
     </section>
   );
 }

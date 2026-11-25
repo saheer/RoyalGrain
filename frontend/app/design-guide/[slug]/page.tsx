@@ -1,3 +1,4 @@
+import BannerEdge from "@/components/BannerEdge";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,7 +54,7 @@ export default async function GuidePostPage({ params }: Props) {
       <Header />
       <main>
         {/* Hero: main image under a wood-brown tint, breadcrumb, title, excerpt, date */}
-        <section className="relative overflow-hidden bg-[#2F1200]">
+        <section className="relative isolate overflow-hidden bg-[#2F1200]">
           {post.image && (
             <Image
               src={post.image}
@@ -68,6 +69,7 @@ export default async function GuidePostPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/70 to-[#2F1200]/30" />
 
           <div className="relative z-10 mx-auto max-w-[1338px] px-6 pb-16 pt-36 lg:px-12 lg:pb-[4.5rem] lg:pt-[10.25rem]">
+            <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
             <nav
               aria-label="Breadcrumb"
               className="flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-[0.25em] text-[#f2e9dd]/60"
@@ -107,6 +109,7 @@ export default async function GuidePostPage({ params }: Props) {
               </time>
             )}
           </div>
+          <BannerEdge color="#FEF8F0" />
         </section>
 
         {/* Article body */}
