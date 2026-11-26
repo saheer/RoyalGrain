@@ -44,7 +44,7 @@ export default defineType({
       name: 'bookingEmail',
       title: 'Project enquiries email (shown on the site)',
       type: 'string',
-      initialValue: 'bookings@royalgrain.com',
+      initialValue: 'royalgrainwood@gmail.com',
       description: 'Display only (see above).',
       validation: (r) => r.email(),
     }),

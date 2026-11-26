@@ -63,7 +63,7 @@ export const DEFAULT_CONTACT_HEADING = "Have an Enquiry?";
 export const DEFAULT_CONTACT_DESCRIPTION =
   "Planning a custom piece or a complete interior? Tell us about your space and we will get back to you shortly.";
 export const DEFAULT_GENERAL_EMAIL = "hello@royalgrain.com";
-export const DEFAULT_BOOKING_EMAIL = "bookings@royalgrain.com";
+export const DEFAULT_BOOKING_EMAIL = "royalgrainwood@gmail.com";
 // Placeholders until the real numbers are entered in Studio (Contact Us > Phone / WhatsApp).
 // While a number is a placeholder it is shown as plain text, not as a link.
 export const DEFAULT_PHONE = "+91 XXXXX XXXXX";
