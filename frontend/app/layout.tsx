@@ -34,6 +34,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* images come straight from Sanity's CDN: open that connection early */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Footer />

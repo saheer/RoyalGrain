@@ -35,6 +35,8 @@ export default function Hero({
           alt={heroBackgroundAlt || ""}
           fill
           priority
+          fetchPriority="high"
+          quality={60}
           sizes="100vw"
           className="object-cover"
         />
