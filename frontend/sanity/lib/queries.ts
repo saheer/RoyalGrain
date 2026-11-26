@@ -32,6 +32,9 @@ export const homeQuery = groq`
     heroButtonLink,
     "heroBackground": heroBackground.asset->url,
     "heroBackgroundAlt": heroBackground.alt,
+    "heroHotspot": heroBackground.hotspot{x, y},
+    "heroMobileBackground": heroMobileBackground.asset->url,
+    "heroMobileHotspot": heroMobileBackground.hotspot{x, y},
     "logos": logos[defined(asset)]{
       _key,
       "name": coalesce(name, asset->originalFilename),

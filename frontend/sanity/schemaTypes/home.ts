@@ -79,6 +79,15 @@ export default defineType({
       validation: (r) => r.required(),
     }),
     defineField({
+      name: 'heroMobileBackground',
+      title: 'Mobile background image (optional)',
+      type: 'image',
+      group: 'hero',
+      options: {hotspot: true},
+      description:
+        'Portrait photo (about 800 x 1600 px) used on phones. Leave empty to crop the desktop image automatically around its hotspot.',
+    }),
+    defineField({
       name: 'heroButtonText',
       title: 'Button text',
       type: 'string',
