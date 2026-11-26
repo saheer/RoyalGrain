@@ -98,7 +98,7 @@ const from = rawFrom?.includes("<") ? rawFrom : `Royal Grain <${rawFrom}>`;
       ? process.env.CONTACT_BOOKING_TO || DEFAULT_BOOKING_EMAIL
       : process.env.CONTACT_GENERAL_TO || DEFAULT_GENERAL_EMAIL;
 
-  const subject = `[Website Enquiry] Enquiry from ${v.name}`.replace(/[\r\n]+/g, " ");
+  const subject = `[Royal Grain] Enquiry from ${v.name}`.replace(/[\r\n]+/g, " ");
   const body = [
     `Type of enquiry: ${typeLabel}`,
     `Name: ${v.name}`,
