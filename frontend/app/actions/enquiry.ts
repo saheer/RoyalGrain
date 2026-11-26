@@ -87,7 +87,8 @@ async function saveEnquiry(v: EnquiryValues, typeLabel: string) {
 // 2) Emailed through Resend's REST API (no extra npm package needed)
 async function sendEnquiryEmail(v: EnquiryValues, typeLabel: string) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const rawFrom = process.env.CONTACT_FROM_EMAIL;
+const from = rawFrom?.includes("<") ? rawFrom : `Royal Grain <${rawFrom}>`;
   if (!apiKey || !from) throw new Error("RESEND_API_KEY / CONTACT_FROM_EMAIL not set");
 
   // Project enquiries (doors, furniture, unjal, interiors) go to the "booking" inbox,
@@ -97,7 +98,7 @@ async function sendEnquiryEmail(v: EnquiryValues, typeLabel: string) {
       ? process.env.CONTACT_BOOKING_TO || DEFAULT_BOOKING_EMAIL
       : process.env.CONTACT_GENERAL_TO || DEFAULT_GENERAL_EMAIL;
 
-  const subject = `[${typeLabel}] New website enquiry from ${v.name}`.replace(/[\r\n]+/g, " ");
+  const subject = `[Website Enquiry] Enquiry from ${v.name}`.replace(/[\r\n]+/g, " ");
   const body = [
     `Type of enquiry: ${typeLabel}`,
     `Name: ${v.name}`,
