@@ -74,6 +74,7 @@ async function GuideHero() {
   const hero = await getGuideHero();
   return (
     <AboutHero
+      crumb="Design Guide"
       headingWhite={hero?.heroHeadingWhite ?? "Your Weekly"}
       headingBlue={hero?.heroHeadingBlue ?? "Design Guide."}
       description={

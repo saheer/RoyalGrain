@@ -13,6 +13,7 @@ type Props = {
   imageAlt?: string | null;
   hotspot?: { x: number; y: number } | null;
   edgeColor?: string; // background of the section below the banner
+  crumb?: string; // last item of the mobile breadcrumb: Home > crumb
 };
 
 export default function AboutHero({
@@ -25,6 +26,7 @@ export default function AboutHero({
   imageAlt,
   hotspot,
   edgeColor = "#FEF8F0",
+  crumb = "About Us",
 }: Props) {
   // Strip any trailing arrow typed in the CMS so only one "→" ever shows
   const label = buttonText?.replace(/\s*[→➔➜]+\s*$/u, "").trim();
@@ -49,8 +51,24 @@ export default function AboutHero({
       {/* deep wood-brown tint */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#2F1200]/95 via-[#2F1200]/65 to-[#2F1200]/20" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1338px] px-6 pb-24 pt-40 lg:px-12">
-        <span aria-hidden className="mb-7 block h-[3px] w-14 rounded-full bg-[#D68921]" />
+      <div className="relative z-10 mx-auto w-full max-w-[1338px] px-6 pb-24 pt-[7.4rem] md:pt-40 lg:px-12">
+        {/* Phones: breadcrumb with the accent bar below it. Tablet and up: the bar alone, as before. */}
+        <div className="md:hidden">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-base text-[#f2e9dd]">
+            <Link
+              href="/"
+              className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
+            >
+              Home
+            </Link>
+            <svg aria-hidden viewBox="0 0 24 24" className="h-4 w-4 text-[#D68921]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+            <span aria-current="page">{crumb}</span>
+          </nav>
+          <span aria-hidden className="mb-7 mt-4 block h-[3px] w-14 rounded-full bg-[#D68921]" />
+        </div>
+        <span aria-hidden className="mb-7 hidden h-[3px] w-14 rounded-full bg-[#D68921] md:block" />
         <h1
           className={`${playfair.className} animate-fade-up text-5xl font-bold leading-[1.1] tracking-[-0.01em] text-[#f2e9dd] motion-reduce:animate-none sm:text-6xl lg:text-[4.25rem]`}
         >
