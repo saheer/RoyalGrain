@@ -18,8 +18,8 @@ const NAV = [
 const LEFT_NAV = NAV.slice(0, 3);
 const RIGHT_NAV = NAV.slice(3);
 
-const LOGO_WHITE = "/RoyalGrain_logo_1.png";
-const LOGO_BLUE = "/RoyalGrain_logo_1.png";
+const LOGO_WHITE = "/RoyalGrain_logo_1.webp";
+const LOGO_BLUE = "/RoyalGrain_logo_1.webp";
 
 // The sticky bar appears after SHOW_AT and hides again at HIDE_AT (hysteresis).
 const SHOW_AT = 80;

@@ -140,7 +140,7 @@ export default async function Footer() {
           <div className="flex flex-col gap-6 sm:col-span-2 sm:flex-row sm:items-start sm:gap-8 lg:col-span-1">
             <Link href="/" aria-label="Royal Grain – Home" className="shrink-0">
               <Image
-                src={data.logo || "/RoyalGrain_logo_1.png"}
+                src={data.logo || "/RoyalGrain_logo_1.webp"}
                 alt={data.logoAlt || "Royal Grain"}
                 width={300}
                 height={300}
